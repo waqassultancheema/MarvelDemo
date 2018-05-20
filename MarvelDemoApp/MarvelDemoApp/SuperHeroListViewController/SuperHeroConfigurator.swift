@@ -13,6 +13,7 @@ extension SuperHeroListViewController: SuperHeroPresenterOutput
     func successFetchedItems(viewModel: [SuperHeroList.Fetch.ViewModel.DisplayedSuperHero]) {
         self.tableViewDataSource.displaySuperHeros = viewModel
         DispatchQueue.main.async() {
+            self.activityIndictor.stopAnimating()
             self.tableView.reloadData()
         }
         

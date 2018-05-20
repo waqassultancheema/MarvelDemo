@@ -19,6 +19,7 @@ protocol SuperHeroListViewControllerOutput
 class SuperHeroListViewController: UIViewController {
 
   
+    @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
     var output: SuperHeroListViewControllerOutput!
     var router: MarvelAppRouter!
     let tableViewDataSource:SuperHeroListViewDataSource = SuperHeroListViewDataSource()
@@ -33,8 +34,10 @@ class SuperHeroListViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        self.activityIndictor.hidesWhenStopped = true
         self.tableView.delegate = self.tableViewDataSource
         self.tableView.dataSource = self.tableViewDataSource
+        activityIndictor.startAnimating()
         let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: 0, limit: 10)
         output.fetchItems(request: request)
     }
