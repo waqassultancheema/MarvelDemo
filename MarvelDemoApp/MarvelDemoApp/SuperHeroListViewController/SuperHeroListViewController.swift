@@ -25,7 +25,7 @@ class SuperHeroListViewController: UIViewController {
     let tableViewDataSource:SuperHeroListViewDataSource = SuperHeroListViewDataSource()
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-   
+    var offset = 0
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -38,8 +38,9 @@ class SuperHeroListViewController: UIViewController {
         self.tableView.delegate = self.tableViewDataSource
         self.tableView.dataSource = self.tableViewDataSource
         activityIndictor.startAnimating()
-        let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: 0, limit: 10)
+        let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 10)
         output.fetchItems(request: request)
+        fetchMoreItemsFromServer()
     }
 
     override func didReceiveMemoryWarning() {

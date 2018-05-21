@@ -27,7 +27,7 @@ class SuperHeroListTableViewCell: UITableViewCell,WebAPIHandler {
     func downloadImage(url: String) {
         activityIndictor.startAnimating()
         
-        getDataFromServer(url: url, type: .SuperHeroList) { (response, error) in
+        getDataFromServer(url: url, type: .SuperHeroList) {[unowned self] (response, error) in
              DispatchQueue.main.async() {
             self.activityIndictor.stopAnimating()
             }

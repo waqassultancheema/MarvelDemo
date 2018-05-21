@@ -70,8 +70,9 @@ enum SuperHeroList
         {
             struct DisplayedSuperHero
             {
-                var image:String
+                var imageString:String
                 var name: String
+                var image:UIImage
             }
             var displayedSuperHero: [DisplayedSuperHero]
         }

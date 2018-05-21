@@ -26,12 +26,12 @@ class SuperHeroPresenter:SuperHeroPresenterInput {
     
     func presentFetchResults(response:SuperHeroList.Fetch.Response) {
         
-        if response == nil {
-            output.errorFetchingItems(viewModel: [])
-        }
+//        if response == nil {
+//            output.errorFetchingItems(viewModel: [])
+//        }
         var displayMovies:[SuperHeroList.Fetch.ViewModel.DisplayedSuperHero] = []
         for superHero in response.data.results {
-            let displayViewModel = SuperHeroList.Fetch.ViewModel.DisplayedSuperHero(image: superHero.thumbnail.path + ".\(superHero.thumbnail.thumbnailExtension)", name: superHero.name)
+            let displayViewModel = SuperHeroList.Fetch.ViewModel.DisplayedSuperHero(imageString: superHero.thumbnail.path + ".\(superHero.thumbnail.thumbnailExtension)", name: superHero.name, image: #imageLiteral(resourceName: "image_not_available"))
             displayMovies.append(displayViewModel)
         }
         output.successFetchedItems(viewModel: displayMovies)

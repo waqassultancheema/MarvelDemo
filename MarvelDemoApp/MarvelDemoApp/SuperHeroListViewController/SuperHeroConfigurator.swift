@@ -1,3 +1,4 @@
+
 //
 //  MovieConfigurator.swift
 //  MarvelDemoApp
@@ -8,12 +9,33 @@
 
 import UIKit
 
+extension SuperHeroListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        // open next view controller from here
+        // router.passDataToNextScene(segue: segue)
+    }
+    func fetchMoreItemsFromServer(){
+        
+        
+        self.tableViewDataSource.loadMoreSuperHerosForList = { [unowned self] in
+            DispatchQueue.main.async() {
+                self.activityIndictor.startAnimating()
+            }
+            self.offset = self.offset + 20
+            let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: self.offset, limit: 20)
+            self.output.fetchItems(request: request)
+        }
+    }
+}
 extension SuperHeroListViewController: SuperHeroPresenterOutput
 {
     func successFetchedItems(viewModel: [SuperHeroList.Fetch.ViewModel.DisplayedSuperHero]) {
-        self.tableViewDataSource.displaySuperHeros = viewModel
+        self.tableViewDataSource.displaySuperHeros.append(contentsOf: viewModel)
+        
         DispatchQueue.main.async() {
             self.activityIndictor.stopAnimating()
+            self.tableViewDataSource.loadTableViewFromData()
             self.tableView.reloadData()
         }
         
@@ -23,24 +45,7 @@ extension SuperHeroListViewController: SuperHeroPresenterOutput
         
     }
     
-//    func successFetchedItems(viewModel: [Fetch.ViewModel.DisplayViewModel]) {
-//        //self.viewModels = viewModel
-//        self.tableViewDataSource.displayMovies = viewModel
-//        self.tableView.reloadData()
-//
-//    }
-//
-//    func errorFetchingItems(viewModel: [Fetch.ViewModel.DisplayViewModel]) {
-//      //  self.viewModels = viewModel
-//        self.tableViewDataSource.displayMovies = viewModel
-//        self.tableView.reloadData()
-//    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        // open next view controller from here
-       // router.passDataToNextScene(segue: segue)
-    }
 }
 
 extension SuperHeroInteractor: SuperHeroListViewControllerOutput
@@ -57,10 +62,6 @@ extension  SuperHeroPresenter: SuperHeroInteractorOutput
     func presentFetchedSuperHeros(response: SuperHeroList.Fetch.Response) {
         SuperHeroConfigurator.sharedInstance.presenter.presentFetchResults(response: response)
     }
-    
-//    func presentFetchMovies(movies: [Movie]) {
-//        SuperHeroConfigurator.sharedInstance.presenter.presentFetchResults(movies: movies)
-//    }
 }
 
 class SuperHeroConfigurator: NSObject {

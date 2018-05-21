@@ -12,10 +12,13 @@ enum TypeEnum: String, Codable {
     case cover = "cover"
     case empty = ""
     case interiorStory = "interiorStory"
+    case pinup = "pinup"
+    case backcovers = "backcovers"
+
 }
 struct StoriesItem: Codable {
     let resourceURI, name: String
-    let type: TypeEnum
+    let type: String
 }
 extension StoriesItem {
     init(data: Data) throws {
