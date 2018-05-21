@@ -22,11 +22,8 @@ class SuperHeroListViewDataSource: NSObject,UITableViewDelegate,UITableViewDataS
         let tableViewCell:SuperHeroListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroListTableViewCell", for: indexPath) as! SuperHeroListTableViewCell
         let displaySuperHero:SuperHeroList.Fetch.ViewModel.DisplayedSuperHero = displaySuperHeros[indexPath.row]
         tableViewCell.headerLabel.text = displaySuperHero.name
-        if displaySuperHero.image != #imageLiteral(resourceName: "image_not_available") {
-            tableViewCell.backgroundImage.image = displaySuperHero.image
-        } else {
-           tableViewCell.downloadImage(url: displaySuperHero.imageString)
-        }
+        tableViewCell.downloadImage(url: displaySuperHero.imageString)
+        
         
         return tableViewCell
     }

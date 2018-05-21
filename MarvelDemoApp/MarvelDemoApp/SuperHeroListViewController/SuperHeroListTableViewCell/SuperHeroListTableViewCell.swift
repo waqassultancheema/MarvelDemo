@@ -26,18 +26,11 @@ class SuperHeroListTableViewCell: UITableViewCell,WebAPIHandler {
     
     func downloadImage(url: String) {
         activityIndictor.startAnimating()
-        
-        getDataFromServer(url: url, type: .SuperHeroList) {[unowned self] (response, error) in
-             DispatchQueue.main.async() {
-            self.activityIndictor.stopAnimating()
-            }
-            guard error == nil else {
-                return
-            }
-            
-            if let mData = response as? Data {
-                DispatchQueue.main.async() {
-                    self.backgroundImage.image = UIImage(data: mData)
+        let urL  = URL(string: url)
+        if let correctURL = urL {
+            self.backgroundImage.loadImageWithUrl(correctURL) {[unowned self] (value) in
+                if value == true {
+                    self.activityIndictor.stopAnimating()
                 }
             }
         }

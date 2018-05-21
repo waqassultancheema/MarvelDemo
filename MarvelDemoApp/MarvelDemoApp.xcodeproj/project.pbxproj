@@ -36,6 +36,7 @@
 		29304F0420B161D800A6F82E /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29304EFF20B161D800A6F82E /* ResponseParser.swift */; };
 		29304F0520B161D800A6F82E /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29304F0020B161D800A6F82E /* WebAPI.swift */; };
 		29304F0820B164A400A6F82E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29304F0720B164A400A6F82E /* Constants.swift */; };
+		29304F0A20B2AA7C00A6F82E /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29304F0920B2AA7C00A6F82E /* ImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		29304EFF20B161D800A6F82E /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		29304F0020B161D800A6F82E /* WebAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
 		29304F0720B164A400A6F82E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		29304F0920B2AA7C00A6F82E /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				29304EFE20B161D800A6F82E /* Request.swift */,
 				29304EFF20B161D800A6F82E /* ResponseParser.swift */,
 				29304F0020B161D800A6F82E /* WebAPI.swift */,
+				29304F0920B2AA7C00A6F82E /* ImageDownloader.swift */,
 			);
 			path = WebApi;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				29304ECD20B149CA00A6F82E /* SuperHeroInteractor.swift in Sources */,
 				29304F0420B161D800A6F82E /* ResponseParser.swift in Sources */,
 				29304EF520B1559B00A6F82E /* StoriesItem.swift in Sources */,
+				29304F0A20B2AA7C00A6F82E /* ImageDownloader.swift in Sources */,
 				29304EA920B1489100A6F82E /* SuperHeroListTableViewCell.swift in Sources */,
 				29304EFA20B155C300A6F82E /* SuperHeroListModel.swift in Sources */,
 				29304F0520B161D800A6F82E /* WebAPI.swift in Sources */,
