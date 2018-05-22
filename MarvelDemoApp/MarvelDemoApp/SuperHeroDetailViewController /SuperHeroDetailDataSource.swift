@@ -27,22 +27,18 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
            
             
                 let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
-            if index < (displaySuperHero?.superHero.comics.items.count)! {
                 tableViewCell.activityIndictor.stopAnimating()
-                tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[index].name
-                tableViewCell.comicURL  = (displaySuperHero?.superHero.comics.items[index].resourceURI)!
+                tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
+                tableViewCell.comicURL  = (displaySuperHero?.superHero.comics.items[indexPath.row].resourceURI)!
                 tableViewCell.request =  ComicsModel.Fetch.Request(comicURL: tableViewCell.comicURL)
                 tableViewCell.sendServiceRequest()
-                index  = index + 1
-            }
+            
             
                 return tableViewCell
             
         }
         
         let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
-      //  tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[index].name
-       // tableViewCell.comicURL  = (displaySuperHero?.superHero.comics.items[index].resourceURI)!
         return tableViewCell
         
         
@@ -66,7 +62,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             if section == 1 {
                 if let comicArray = displaySuperHero?.superHero.comics.items {
                     if comicArray.count > 0 {
-                        return 2 //TODO : When i set it 3 or 2.. problem come.. plz chk
+                        return 3 //TODO : When i set it 3 or 2.. problem come.. plz chk
                     }
                 }
             } else {
@@ -81,7 +77,11 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
         return 2
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 200
+        }
+        return 300
+        
     }
     
     

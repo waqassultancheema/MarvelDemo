@@ -31,6 +31,8 @@ class SuperHeroDetailTableViewCell: UITableViewCell {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
+        instance.configure(cell: self)
+
     }
     
    

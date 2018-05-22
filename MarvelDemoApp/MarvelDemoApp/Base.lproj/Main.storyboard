@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -169,38 +168,38 @@
                                             <outlet property="headerLabel" destination="lxT-vS-3oz" id="t8Q-1q-cEm"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperHeroDetailTableViewCell" rowHeight="200" id="t2E-Rg-uYi" customClass="SuperHeroDetailTableViewCell" customModule="MarvelDemoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="228" width="375" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperHeroDetailTableViewCell" id="t2E-Rg-uYi" customClass="SuperHeroDetailTableViewCell" customModule="MarvelDemoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="228" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t2E-Rg-uYi" id="PPL-5M-osf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcc-yU-90E">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcc-yU-90E">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="23.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-xl-uBW">
-                                                    <rect key="frame" x="0.0" y="179.5" width="375" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-xl-uBW">
+                                                    <rect key="frame" x="0.0" y="23.5" width="375" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kSj-lr-lQz">
-                                                    <rect key="frame" x="177" y="180" width="20" height="20"/>
+                                                    <rect key="frame" x="177" y="24" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="kSj-lr-lQz" firstAttribute="centerY" secondItem="kBy-xl-uBW" secondAttribute="centerY" id="4Lx-55-u8I"/>
+                                                <constraint firstItem="kBy-xl-uBW" firstAttribute="leading" secondItem="PPL-5M-osf" secondAttribute="leading" id="FWb-Ho-TQ7"/>
                                                 <constraint firstAttribute="bottom" secondItem="kBy-xl-uBW" secondAttribute="bottom" id="HB7-LJ-zbB"/>
                                                 <constraint firstItem="pcc-yU-90E" firstAttribute="top" secondItem="PPL-5M-osf" secondAttribute="top" id="SG7-6i-zeb"/>
                                                 <constraint firstItem="kBy-xl-uBW" firstAttribute="top" secondItem="pcc-yU-90E" secondAttribute="bottom" id="Xlt-JL-CDq"/>
                                                 <constraint firstItem="kSj-lr-lQz" firstAttribute="centerX" secondItem="kBy-xl-uBW" secondAttribute="centerX" id="ehd-UV-Ash"/>
                                                 <constraint firstItem="pcc-yU-90E" firstAttribute="leading" secondItem="PPL-5M-osf" secondAttribute="leading" id="gDn-JB-oTQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="pcc-yU-90E" secondAttribute="trailing" id="s6y-o4-Idb"/>
-                                                <constraint firstItem="kBy-xl-uBW" firstAttribute="leading" secondItem="PPL-5M-osf" secondAttribute="leading" id="w24-J3-jPl"/>
                                                 <constraint firstAttribute="trailing" secondItem="kBy-xl-uBW" secondAttribute="trailing" id="xwk-cP-lZO"/>
                                             </constraints>
                                         </tableViewCellContentView>
