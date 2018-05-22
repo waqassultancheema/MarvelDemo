@@ -8,16 +8,26 @@
 
 import UIKit
 
+protocol SuperHeroDetailTableViewCellOutput
+{
+    func fetchItems(request: ComicsModel.Fetch.Request)
+}
 class SuperHeroDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
+
+    var comicURL:String  = ""
+    var request:ComicsModel.Fetch.Request?
+    var output: SuperHeroDetailTableViewCellOutput!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        ComicConfigurator.sharedInstance.configure(cell: self)
         self.activityIndictor.hidesWhenStopped = true
-        // Initialization code
+        
     }
-
     override func prepareForReuse() {
         super.prepareForReuse()
     }

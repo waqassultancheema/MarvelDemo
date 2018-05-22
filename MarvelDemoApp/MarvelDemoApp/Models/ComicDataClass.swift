@@ -1,23 +1,24 @@
 //
-//  Character.swift
+//  DataClass.swift
 //  MarvelDemoApp
 //
 //  Created by Waqas Sultan on 5/20/18.
 //  Copyright © 2018 Waqas Sultan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Comics: Codable {
-    let available: Int
-    let collectionURI: String
-    let items: [ComicsItem]
-    let returned: Int
+struct ComicDataClass: Codable {
+    let offset, limit, total, count: Int
+    let results: [ComicsDetail]
 }
-extension Comics {
-    
+// MARK: Convenience initializers
+
+
+
+extension ComicDataClass {
     init(data: Data) throws {
-        self = try JSONDecoder().decode(Comics.self, from: data)
+        self = try JSONDecoder().decode(ComicDataClass.self, from: data)
     }
     
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {

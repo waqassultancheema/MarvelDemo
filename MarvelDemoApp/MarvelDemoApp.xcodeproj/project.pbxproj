@@ -41,6 +41,13 @@
 		29304F1320B2CF7C00A6F82E /* SuperHeroDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29304F1220B2CF7C00A6F82E /* SuperHeroDetailTableViewCell.swift */; };
 		29304F1520B2CF9A00A6F82E /* SuperHeroDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29304F1420B2CF9A00A6F82E /* SuperHeroDetailDataSource.swift */; };
 		29DFDD6C20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6B20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift */; };
+		29DFDD7220B3FD34002D496F /* ComicsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */; };
+		29DFDD7320B3FD34002D496F /* ComicsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6F20B3FD34002D496F /* ComicsModel.swift */; };
+		29DFDD7420B3FD34002D496F /* ComicsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD7020B3FD34002D496F /* ComicsPresenter.swift */; };
+		29DFDD7520B3FD34002D496F /* ComicsRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD7120B3FD34002D496F /* ComicsRemoteWorker.swift */; };
+		29DFDD7720B40150002D496F /* ComicDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD7620B40150002D496F /* ComicDataClass.swift */; };
+		29DFDD7920B40462002D496F /* ComicConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD7820B40462002D496F /* ComicConfigurator.swift */; };
+		29DFDD7B20B407BB002D496F /* ComicsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD7A20B407BA002D496F /* ComicsDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +108,13 @@
 		29304F1220B2CF7C00A6F82E /* SuperHeroDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailTableViewCell.swift; sourceTree = "<group>"; };
 		29304F1420B2CF9A00A6F82E /* SuperHeroDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailDataSource.swift; sourceTree = "<group>"; };
 		29DFDD6B20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailConfigurator.swift; sourceTree = "<group>"; };
+		29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsInteractor.swift; sourceTree = "<group>"; };
+		29DFDD6F20B3FD34002D496F /* ComicsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsModel.swift; sourceTree = "<group>"; };
+		29DFDD7020B3FD34002D496F /* ComicsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsPresenter.swift; sourceTree = "<group>"; };
+		29DFDD7120B3FD34002D496F /* ComicsRemoteWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsRemoteWorker.swift; sourceTree = "<group>"; };
+		29DFDD7620B40150002D496F /* ComicDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicDataClass.swift; sourceTree = "<group>"; };
+		29DFDD7820B40462002D496F /* ComicConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicConfigurator.swift; sourceTree = "<group>"; };
+		29DFDD7A20B407BA002D496F /* ComicsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				29304EE820B1559B00A6F82E /* Comics.swift */,
+				29DFDD7A20B407BA002D496F /* ComicsDetail.swift */,
 				29304EE920B1559B00A6F82E /* ComicsItem.swift */,
+				29DFDD7620B40150002D496F /* ComicDataClass.swift */,
 				29304EEA20B1559B00A6F82E /* DataClass.swift */,
 				29304EEB20B1559B00A6F82E /* Stories.swift */,
 				29304EEC20B1559B00A6F82E /* StoriesItem.swift */,
@@ -258,8 +274,21 @@
 			isa = PBXGroup;
 			children = (
 				29304F1220B2CF7C00A6F82E /* SuperHeroDetailTableViewCell.swift */,
+				29DFDD6D20B3FD34002D496F /* Comics */,
 			);
 			path = SuperHeroDetailTableViewCell;
+			sourceTree = "<group>";
+		};
+		29DFDD6D20B3FD34002D496F /* Comics */ = {
+			isa = PBXGroup;
+			children = (
+				29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */,
+				29DFDD6F20B3FD34002D496F /* ComicsModel.swift */,
+				29DFDD7020B3FD34002D496F /* ComicsPresenter.swift */,
+				29DFDD7120B3FD34002D496F /* ComicsRemoteWorker.swift */,
+				29DFDD7820B40462002D496F /* ComicConfigurator.swift */,
+			);
+			path = Comics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,10 +424,12 @@
 			files = (
 				29304EF420B1559B00A6F82E /* Stories.swift in Sources */,
 				29304EF320B1559B00A6F82E /* DataClass.swift in Sources */,
+				29DFDD7520B3FD34002D496F /* ComicsRemoteWorker.swift in Sources */,
 				29304ED020B149CA00A6F82E /* SuperHeroPresenter.swift in Sources */,
 				29304EF720B1559B00A6F82E /* Thumbnail.swift in Sources */,
 				29304F0320B161D800A6F82E /* Request.swift in Sources */,
 				29304ED320B149EC00A6F82E /* MarvelRouter.swift in Sources */,
+				29DFDD7420B3FD34002D496F /* ComicsPresenter.swift in Sources */,
 				29304EF120B1559B00A6F82E /* Comics.swift in Sources */,
 				29304F0F20B2CE6400A6F82E /* SuperHeroDetailViewController.swift in Sources */,
 				29304EF820B1559B00A6F82E /* URL.swift in Sources */,
@@ -406,15 +437,20 @@
 				29304F0420B161D800A6F82E /* ResponseParser.swift in Sources */,
 				29304F1320B2CF7C00A6F82E /* SuperHeroDetailTableViewCell.swift in Sources */,
 				29304EF520B1559B00A6F82E /* StoriesItem.swift in Sources */,
+				29DFDD7920B40462002D496F /* ComicConfigurator.swift in Sources */,
 				29304F0A20B2AA7C00A6F82E /* ImageDownloader.swift in Sources */,
 				29304EA920B1489100A6F82E /* SuperHeroListTableViewCell.swift in Sources */,
 				29304EFA20B155C300A6F82E /* SuperHeroListModel.swift in Sources */,
+				29DFDD7720B40150002D496F /* ComicDataClass.swift in Sources */,
 				29304F0520B161D800A6F82E /* WebAPI.swift in Sources */,
 				29304F1520B2CF9A00A6F82E /* SuperHeroDetailDataSource.swift in Sources */,
 				29304EF620B1559B00A6F82E /* SuperHero.swift in Sources */,
 				29304ED120B149CA00A6F82E /* SuperHeroRemoteWorker.swift in Sources */,
 				29DFDD6C20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift in Sources */,
 				29304ECE20B149CA00A6F82E /* SuperHeroConfigurator.swift in Sources */,
+				29DFDD7B20B407BB002D496F /* ComicsDetail.swift in Sources */,
+				29DFDD7220B3FD34002D496F /* ComicsInteractor.swift in Sources */,
+				29DFDD7320B3FD34002D496F /* ComicsModel.swift in Sources */,
 				29304EF220B1559B00A6F82E /* ComicsItem.swift in Sources */,
 				29304ECC20B149CA00A6F82E /* SuperHeroListViewDataSource.swift in Sources */,
 				29304EA620B1440600A6F82E /* SuperHeroListViewController.swift in Sources */,

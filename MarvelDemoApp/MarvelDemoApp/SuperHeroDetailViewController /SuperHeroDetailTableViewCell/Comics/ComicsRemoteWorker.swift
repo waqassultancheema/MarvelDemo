@@ -15,10 +15,10 @@ import UIKit
  */
 
 //https://gateway.marvel.com/v1/public/characters?ts=1&limit=1&offset=10&apikey=4e58a69173498255e53a2f700a2ae54a&hash=e4862dd7fb9ed77558b02711ee240469
-class SuperHeroRemoteWorker: WebAPIHandler {
+class ComicsRemoteWorker: WebAPIHandler {
    
     
-    func fetchMovies(request: SuperHeroList.Fetch.Request, complete :@escaping (SuperHeroList.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
+    func fetchMovies(request: ComicsModel.Fetch.Request, complete :@escaping (ComicsModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
         
         getDataFromServer(url: request.mURL, type: .SuperHeroList) { (response, error) in
             
@@ -30,7 +30,7 @@ class SuperHeroRemoteWorker: WebAPIHandler {
             if let mData = response as? Data {
                 
                 do {
-                    let response = try SuperHeroList.Fetch.Response(data: mData)
+                    let response = try ComicsModel.Fetch.Response(data: mData)
                     complete(response)
                 } catch  {
                     failure(nil)
@@ -64,4 +64,20 @@ class SuperHeroRemoteWorker: WebAPIHandler {
 //    }
 //}
 
+// MARK: - URLSession response handlers
 
+extension URLSession {
+    fileprivate func codableTask<T: Codable>(with url: URL, completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return self.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completionHandler(nil, response, error)
+                return
+            }
+            completionHandler(try? JSONDecoder().decode(T.self, from: data), response, nil)
+        }
+    }
+    
+    func parentBoTask(with url: URL, completionHandler: @escaping (SuperHeroList.Fetch.Response?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return self.codableTask(with: url, completionHandler: completionHandler)
+    }
+}
