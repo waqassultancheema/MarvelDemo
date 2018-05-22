@@ -1,5 +1,5 @@
 //
-//  ComicConfigurator.swift
+//  StoriesConfigurator.swift
 //  MarvelDemoApp
 //
 //  Created by Waqas Sultan on 5/22/18.
@@ -14,9 +14,9 @@ import UIKit
 extension SuperHeroDetailTableViewCell {
     
 }
-extension SuperHeroDetailTableViewCell: ComicsPresenterOutput
+extension SuperHeroDetailTableViewCell: StoriesPresenterOutput
 {
-    func successFetchedItems(viewModel: ComicsModel.Fetch.ViewModel.DisplayedComic) {
+    func successFetchedItems(viewModel: StoriesModel.Fetch.ViewModel.DisplayedStories) {
         DispatchQueue.main.async() {
             self.activityIndictor.stopAnimating()
             self.headerLabel.text = viewModel.name
@@ -26,25 +26,24 @@ extension SuperHeroDetailTableViewCell: ComicsPresenterOutput
         
     }
     
-    func errorFetchingItems(viewModel: ComicsModel.Fetch.ViewModel.DisplayedComic) {
+    func errorFetchingItems(viewModel: StoriesModel.Fetch.ViewModel.DisplayedStories) {
         
     }
     
-    func sendComicServiceRequest() {
+    func sendStoriesServiceRequest() {
         // Initialization code
         self.activityIndictor.startAnimating()
-        output.fetchComicItems(request: requestComic!)
+        output.fetchStoriesItems(request: requestStories!)
     }
     
     
     
 }
 
-extension ComicsInteractor: SuperHeroDetailTableViewCellOutput
+extension StoriesInteractor: SuperHeroDetailTableViewCellOutput
 {
     func fetchComicItems(request: ComicsModel.Fetch.Request) {
-        self.fetchComic(request: request)
-
+        
     }
     
     func fetchEventItems(request: EventsModel.Fetch.Request) {
@@ -52,7 +51,8 @@ extension ComicsInteractor: SuperHeroDetailTableViewCellOutput
     }
     
     func fetchStoriesItems(request: StoriesModel.Fetch.Request) {
-        
+        self.fetchStories(request: request)
+
     }
     
     func fetchSeriesItems(request: SeriesModel.Fetch.Request) {
@@ -66,19 +66,21 @@ extension ComicsInteractor: SuperHeroDetailTableViewCellOutput
     
 }
 
-extension  ComicsPresenter: ComicsInteractorOutput
+extension  StoriesPresenter: StoriesInteractorOutput
 {
-    func presentFetchedComic(response: ComicsModel.Fetch.Response) {
+    
+    
+    func presentFetchedStories(response: StoriesModel.Fetch.Response) {
         self.presentFetchResults(response: response)
     }
     
 }
 
-class ComicConfigurator: NSObject {
+class StoriesConfigurator: NSObject {
     
-  //  static let sharedInstance = ComicConfigurator()
-    let presenter = ComicsPresenter()
-    let interactor = ComicsInteractor()
+  //  static let sharedInstance = StoriesConfigurator()
+    let presenter = StoriesPresenter()
+    let interactor = StoriesInteractor()
     
     override init() {}
     

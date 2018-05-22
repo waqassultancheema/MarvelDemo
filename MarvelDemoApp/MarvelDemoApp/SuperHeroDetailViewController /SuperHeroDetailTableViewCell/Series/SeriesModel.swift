@@ -11,7 +11,7 @@
 import UIKit
 
 
-enum ComicsModel
+enum SeriesModel
 {
     // MARK: Use cases
     
@@ -19,11 +19,11 @@ enum ComicsModel
     {
         struct Request
         {
-            var comicURL:String = ""
+            var seriesURL:String = ""
             
             var mURL: String {
                
-            let url = String(format: "\(comicURL)" + "?ts=\(Constant.SUPER_HERO_COMICS_URL.timeStamp)&apikey=\(Constant.API_KEY)&hash=\(Constant.SUPER_HERO_COMICS_URL.hash)")
+            let url = String(format: "\(seriesURL)" + "?ts=\(Constant.SUPER_HERO_SERIES_URL.timeStamp)&apikey=\(Constant.API_KEY)&hash=\(Constant.SUPER_HERO_SERIES_URL.hash)")
                     return url
             }
         }
@@ -61,12 +61,12 @@ enum ComicsModel
 
         struct ViewModel
         {
-            struct DisplayedComic
+            struct DisplayedSeries
             {
                 var name: String
                 var detail:String
             }
-            var displayedSuperHero: DisplayedComic
+            var displayedSuperHero: DisplayedSeries
         }
     }
 }

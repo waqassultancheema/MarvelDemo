@@ -30,11 +30,58 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
                 tableViewCell.activityIndictor.stopAnimating()
                 tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
                 tableViewCell.comicURL  = (displaySuperHero?.superHero.comics.items[indexPath.row].resourceURI)!
-                tableViewCell.request =  ComicsModel.Fetch.Request(comicURL: tableViewCell.comicURL)
-                tableViewCell.sendServiceRequest()
+                tableViewCell.requestComic =  ComicsModel.Fetch.Request(comicURL: tableViewCell.comicURL)
+                tableViewCell.sendComicServiceRequest()
             
             
                 return tableViewCell
+            
+        } else if indexPath.section == 2 {
+            
+            
+            let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
+            tableViewCell.activityIndictor.stopAnimating()
+            tableViewCell.headerLabel.text = displaySuperHero?.superHero.events.items[indexPath.row].name
+            if let resourceURl = (displaySuperHero?.superHero.events.items[indexPath.row].resourceURI) {
+                tableViewCell.requestEvent =  EventsModel.Fetch.Request(eventURL: resourceURl)
+
+            }
+            tableViewCell.sendEventServiceRequest()
+            
+            
+            return tableViewCell
+            
+        } else if indexPath.section == 3 {
+            
+            
+            let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
+            tableViewCell.activityIndictor.stopAnimating()
+            tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
+            if let resourceURl = (displaySuperHero?.superHero.stories.items[indexPath.row].resourceURI) {
+                tableViewCell.requestStories =  StoriesModel.Fetch.Request(storiesURL: resourceURl)
+                
+            }
+
+            tableViewCell.sendStoriesServiceRequest()
+            
+            
+            return tableViewCell
+            
+        } else if indexPath.section == 4 {
+            
+            
+            let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
+            tableViewCell.activityIndictor.stopAnimating()
+            tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
+            if let resourceURl = (displaySuperHero?.superHero.series.items[indexPath.row].resourceURI) {
+                tableViewCell.requestSeries =  SeriesModel.Fetch.Request(seriesURL: resourceURl)
+                
+            }
+
+            tableViewCell.sendSeriesServiceRequest()
+            
+            
+            return tableViewCell
             
         }
         
@@ -65,7 +112,26 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
                         return 3 //TODO : When i set it 3 or 2.. problem come.. plz chk
                     }
                 }
-            } else {
+            } else if section == 2 {
+                if let comicArray = displaySuperHero?.superHero.events.items {
+                    if comicArray.count > 0 {
+                        return 3 //TODO : When i set it 3 or 2.. problem come.. plz chk
+                    }
+                }
+            } else if section == 3 {
+                if let comicArray = displaySuperHero?.superHero.stories.items {
+                    if comicArray.count > 0 {
+                        return 3 //TODO : When i set it 3 or 2.. problem come.. plz chk
+                    }
+                }
+            } else if section == 4 {
+                if let comicArray = displaySuperHero?.superHero.series.items {
+                    if comicArray.count > 0 {
+                        return 3 //TODO : When i set it 3 or 2.. problem come.. plz chk
+                    }
+                }
+            }
+            else {
                 return 1
             }
             

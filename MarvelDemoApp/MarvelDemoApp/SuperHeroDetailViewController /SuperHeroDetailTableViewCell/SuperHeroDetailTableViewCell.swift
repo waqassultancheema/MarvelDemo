@@ -10,7 +10,10 @@ import UIKit
 
 protocol SuperHeroDetailTableViewCellOutput
 {
-    func fetchItems(request: ComicsModel.Fetch.Request)
+    func fetchComicItems(request: ComicsModel.Fetch.Request)
+     func fetchEventItems(request: EventsModel.Fetch.Request)
+     func fetchStoriesItems(request: StoriesModel.Fetch.Request)
+     func fetchSeriesItems(request: SeriesModel.Fetch.Request)
 }
 class SuperHeroDetailTableViewCell: UITableViewCell {
 
@@ -19,20 +22,33 @@ class SuperHeroDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
 
     var comicURL:String  = ""
-    var request:ComicsModel.Fetch.Request?
+    var requestComic:ComicsModel.Fetch.Request?
+    var requestEvent:EventsModel.Fetch.Request?
+    var requestSeries:SeriesModel.Fetch.Request?
+    var requestStories:StoriesModel.Fetch.Request?
+
     var output: SuperHeroDetailTableViewCellOutput!
     let instance = ComicConfigurator()
+    let eventInstance = EventConfigurator()
+    let seriesInstance = SeriesConfigurator()
+    let storiesInstance = StoriesConfigurator()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         instance.configure(cell: self)
+        eventInstance.configure(cell: self)
+        seriesInstance.configure(cell: self)
+        storiesInstance.configure(cell: self)
+
         self.activityIndictor.hidesWhenStopped = true
         
     }
     override func prepareForReuse() {
         super.prepareForReuse()
         instance.configure(cell: self)
-
+        eventInstance.configure(cell: self)
+        seriesInstance.configure(cell: self)
+        storiesInstance.configure(cell: self)
     }
     
    

@@ -8,17 +8,17 @@
 
 import UIKit
 
-struct ComicDataClass: Codable {
+struct DetailDataClass: Codable {
     let offset, limit, total, count: Int
-    let results: [ComicsDetail]
+    let results: [Details]
 }
 // MARK: Convenience initializers
 
 
 
-extension ComicDataClass {
+extension DetailDataClass {
     init(data: Data) throws {
-        self = try JSONDecoder().decode(ComicDataClass.self, from: data)
+        self = try JSONDecoder().decode(DetailDataClass.self, from: data)
     }
     
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {

@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct ComicsDetail: Codable {
+struct Details: Codable {
     let description:String?
     let title:String
 }
-extension ComicsDetail {
+extension Details {
     
     init(data: Data) throws {
-        self = try JSONDecoder().decode(ComicsDetail.self, from: data)
+        self = try JSONDecoder().decode(Details.self, from: data)
     }
     
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
