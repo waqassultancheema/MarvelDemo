@@ -9,18 +9,35 @@
 import UIKit
 /*                       Router
  This is a simple component. The router takes care for the transition and passing data (if necessary) between view controllers. Also, you can use segues, unlike the VIPER architecture where you can’t do that. */
-protocol MarvelAppRouterView {
-   func showMovieDetailViewController()
+protocol SuperHeroListRouterView {
+   func showSuperHeroDetailViewController(superHero:SuperHeroList.Fetch.ViewModel.DisplayedSuperHero)
+   func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
-class MarvelAppRouter: MarvelAppRouterView {
 
-    var movieDetailViewController:UIViewController? = nil
+protocol SuperHeroListDataPassing
+{
+    var dataStore: SuperHeroList.Fetch.ViewModel.DisplayedSuperHero? { get }
+}
+
+class SuperHeroListRouter: SuperHeroListRouterView,SuperHeroListDataPassing{
+    
+    
+    
+    var dataStore: SuperHeroList.Fetch.ViewModel.DisplayedSuperHero?
+    
     var navigationController:UINavigationController? = nil
-    var movieListViewController:SuperHeroListViewController? = nil
-    func showMovieDetailViewController() {
-        let storyboard:UIStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        movieDetailViewController = storyboard.instantiateViewController(withIdentifier: "")
-        navigationController?.pushViewController(movieDetailViewController!, animated: true)
+    var superHeroListViewController:SuperHeroListViewController? = nil
+    
+    func showSuperHeroDetailViewController(superHero:SuperHeroList.Fetch.ViewModel.DisplayedSuperHero) {
+        dataStore  = superHero
+        superHeroListViewController?.performSegue(withIdentifier: "SuperHeroDetail", sender: nil)
+    }
+    
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let superHeroDetailViewController = segue.destination as? SuperHeroDetailViewController {
+            superHeroDetailViewController.configurator = SuperHeroDetailConfigurator()
+             superHeroDetailViewController.configurator?.superHero = dataStore
+        }
     }
     
 }

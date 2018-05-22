@@ -31,7 +31,7 @@ class SuperHeroPresenter:SuperHeroPresenterInput {
 //        }
         var displayMovies:[SuperHeroList.Fetch.ViewModel.DisplayedSuperHero] = []
         for superHero in response.data.results {
-            let displayViewModel = SuperHeroList.Fetch.ViewModel.DisplayedSuperHero(imageString: superHero.thumbnail.path + ".\(superHero.thumbnail.thumbnailExtension)", name: superHero.name, image: #imageLiteral(resourceName: "image_not_available"))
+            let displayViewModel = SuperHeroList.Fetch.ViewModel.DisplayedSuperHero(imageString: superHero.thumbnail.path + ".\(superHero.thumbnail.thumbnailExtension)", name: superHero.name, image: #imageLiteral(resourceName: "image_not_available"), superHero: superHero)
             displayMovies.append(displayViewModel)
         }
         output.successFetchedItems(viewModel: displayMovies)

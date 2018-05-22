@@ -12,8 +12,7 @@ import UIKit
 extension SuperHeroListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        // open next view controller from here
-        // router.passDataToNextScene(segue: segue)
+        router.prepare(for: segue, sender: sender)
     }
     func fetchMoreItemsFromServer(){
         
@@ -25,6 +24,12 @@ extension SuperHeroListViewController {
             self.offset = self.offset + 20
             let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: self.offset, limit: 20)
             self.output.fetchItems(request: request)
+        }
+    }
+    
+    func handleTableViewSelection() {
+        self.tableViewDataSource.superHeroSelected = { [unowned self] (superHero) in
+            self.router.showSuperHeroDetailViewController(superHero: superHero)
         }
     }
 }
@@ -69,7 +74,7 @@ class SuperHeroConfigurator: NSObject {
     static let sharedInstance = SuperHeroConfigurator()
     let presenter = SuperHeroPresenter()
     let interactor = SuperHeroInteractor()
-    let router = MarvelAppRouter()
+    let router = SuperHeroListRouter()
 
     private override init() {}
     
@@ -77,9 +82,7 @@ class SuperHeroConfigurator: NSObject {
     
     func configure(viewController: SuperHeroListViewController)
     {
-        router.movieListViewController = viewController
-        
-       
+        router.superHeroListViewController = viewController
         presenter.output = viewController
         
       

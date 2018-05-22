@@ -21,7 +21,7 @@ class SuperHeroListViewController: UIViewController {
   
     @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
     var output: SuperHeroListViewControllerOutput!
-    var router: MarvelAppRouter!
+    var router: SuperHeroListRouter!
     let tableViewDataSource:SuperHeroListViewDataSource = SuperHeroListViewDataSource()
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -41,6 +41,7 @@ class SuperHeroListViewController: UIViewController {
         let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 10)
         output.fetchItems(request: request)
         fetchMoreItemsFromServer()
+        handleTableViewSelection()
     }
 
     override func didReceiveMemoryWarning() {

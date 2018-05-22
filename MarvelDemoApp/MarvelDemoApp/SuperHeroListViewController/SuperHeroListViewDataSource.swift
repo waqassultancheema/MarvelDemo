@@ -12,8 +12,9 @@ class SuperHeroListViewDataSource: NSObject,UITableViewDelegate,UITableViewDataS
     
     var displaySuperHeros:[SuperHeroList.Fetch.ViewModel.DisplayedSuperHero] = []
     var isLoadingList:Bool = false
-    public var loadMoreSuperHerosForList: (() -> Void)?
-    
+    public var loadMoreSuperHerosForList: (() -> ())?
+    public var superHeroSelected: ((SuperHeroList.Fetch.ViewModel.DisplayedSuperHero) -> ())?
+
     
     func loadTableViewFromData(){
         isLoadingList = false
@@ -33,6 +34,11 @@ class SuperHeroListViewDataSource: NSObject,UITableViewDelegate,UITableViewDataS
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let displaySuperHero:SuperHeroList.Fetch.ViewModel.DisplayedSuperHero = displaySuperHeros[indexPath.row]
+        self.superHeroSelected!(displaySuperHero)
     }
     
    

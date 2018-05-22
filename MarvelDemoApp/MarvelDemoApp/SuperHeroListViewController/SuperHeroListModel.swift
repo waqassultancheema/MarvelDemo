@@ -73,6 +73,7 @@ enum SuperHeroList
                 var imageString:String
                 var name: String
                 var image:UIImage
+                var superHero:SuperHero
             }
             var displayedSuperHero: [DisplayedSuperHero]
         }
