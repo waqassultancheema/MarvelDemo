@@ -9,7 +9,7 @@
 import Foundation
 
 struct ComicsDetail: Codable {
-    let description:String
+    let description:String?
     let title:String
 }
 extension ComicsDetail {

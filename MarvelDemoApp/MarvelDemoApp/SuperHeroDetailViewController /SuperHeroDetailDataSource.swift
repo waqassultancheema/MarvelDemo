@@ -66,7 +66,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             if section == 1 {
                 if let comicArray = displaySuperHero?.superHero.comics.items {
                     if comicArray.count > 0 {
-                        return 3 //TODO : When i set it 3 or 2.. problem come.. plz chk
+                        return 2 //TODO : When i set it 3 or 2.. problem come.. plz chk
                     }
                 }
             } else {

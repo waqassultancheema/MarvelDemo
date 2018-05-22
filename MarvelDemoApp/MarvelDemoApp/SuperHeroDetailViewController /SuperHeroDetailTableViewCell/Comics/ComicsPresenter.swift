@@ -29,8 +29,10 @@ class ComicsPresenter:ComicsPresenterInput {
 //        if response == nil {
 //            output.errorFetchingItems(viewModel: [])
 //        }
+        if let comicModels =  response.data.results.first {
+            let displayViewModel = ComicsModel.Fetch.ViewModel.DisplayedComic(name: comicModels.title , detail: comicModels.description ?? "")
+            output.successFetchedItems(viewModel: displayViewModel)
+        }
         
-        let displayViewModel = ComicsModel.Fetch.ViewModel.DisplayedComic(name: (response.data.results.first?.title)!, detail: (response.data.results.first?.description)!)
-        output.successFetchedItems(viewModel: displayViewModel)
     }
 }
