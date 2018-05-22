@@ -21,10 +21,11 @@ class SuperHeroDetailTableViewCell: UITableViewCell {
     var comicURL:String  = ""
     var request:ComicsModel.Fetch.Request?
     var output: SuperHeroDetailTableViewCellOutput!
+    let instance = ComicConfigurator()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        ComicConfigurator.sharedInstance.configure(cell: self)
+        instance.configure(cell: self)
         self.activityIndictor.hidesWhenStopped = true
         
     }

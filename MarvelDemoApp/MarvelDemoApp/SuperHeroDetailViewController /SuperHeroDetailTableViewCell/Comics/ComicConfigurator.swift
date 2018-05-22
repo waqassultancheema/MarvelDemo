@@ -43,7 +43,7 @@ extension SuperHeroDetailTableViewCell: ComicsPresenterOutput
 extension ComicsInteractor: SuperHeroDetailTableViewCellOutput
 {
     func fetchItems(request: ComicsModel.Fetch.Request) {
-        ComicConfigurator.sharedInstance.interactor.fetchComic(request: request)
+        self.fetchComic(request: request)
     }
     
     
@@ -54,18 +54,18 @@ extension ComicsInteractor: SuperHeroDetailTableViewCellOutput
 extension  ComicsPresenter: ComicsInteractorOutput
 {
     func presentFetchedComic(response: ComicsModel.Fetch.Response) {
-        ComicConfigurator.sharedInstance.presenter.presentFetchResults(response: response)
+        self.presentFetchResults(response: response)
     }
     
 }
 
 class ComicConfigurator: NSObject {
     
-    static let sharedInstance = ComicConfigurator()
+  //  static let sharedInstance = ComicConfigurator()
     let presenter = ComicsPresenter()
     let interactor = ComicsInteractor()
     
-    private override init() {}
+    override init() {}
     
     // MARK: - Configuration
     

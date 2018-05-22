@@ -14,13 +14,13 @@ protocol ComicsInteractorInput {
     func fetchComic(request:ComicsModel.Fetch.Request)
 }
 
-protocol ComicsInteractorOutput {
+protocol ComicsInteractorOutput: class {
     func presentFetchedComic(response:ComicsModel.Fetch.Response)
 
 }
 class ComicsInteractor:ComicsInteractorInput {
 
-    var output: ComicsInteractorOutput!
+    weak var output: ComicsInteractorOutput?
     var worker: ComicsRemoteWorker!
     
     func fetchComic(request: ComicsModel.Fetch.Request) {
@@ -30,7 +30,7 @@ class ComicsInteractor:ComicsInteractorInput {
 //        }
         worker = ComicsRemoteWorker()
         worker.fetchMovies(request: request, complete: { (response) in
-            self.output.presentFetchedComic(response: response)
+            self.output?.presentFetchedComic(response: response)
         }) { (error) in
            // self.output.presentFetchedSuperHeros(response: nil)
 
