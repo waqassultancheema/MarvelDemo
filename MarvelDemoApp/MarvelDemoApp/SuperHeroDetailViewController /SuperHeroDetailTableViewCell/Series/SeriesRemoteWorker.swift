@@ -20,7 +20,7 @@ class SeriesRemoteWorker: WebAPIHandler {
     
     func fetchMovies(request: SeriesModel.Fetch.Request, complete :@escaping (SeriesModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
         
-        getDataFromServer(url: request.mURL, type: .SuperHeroList) { (response, error) in
+        getDataFromServer(url: request.mURL) { (response, error) in
             
             guard error == nil else {
                 failure(error)

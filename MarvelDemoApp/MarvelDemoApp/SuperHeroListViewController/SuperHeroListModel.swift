@@ -22,11 +22,10 @@ enum SuperHeroList
             var isFilteredApplied = false
             var offset:Int = 10
             var limit:Int = 10
-            
+            var searchQuery = ""
             var mURL: String {
                 if isFilteredApplied == true {
-                    let url = String(format:Constant.SUPER_HERO_LIST_URL
-                        .path +  "")
+                    let url = String(format: Constant.SUPER_HERO_LIST_URL.path + "&name=\(searchQuery)")
                     return url
                 } else {
                     let url = String(format: Constant.SUPER_HERO_LIST_URL.path + "&offset=\(offset)" + "&limit=\(limit)")

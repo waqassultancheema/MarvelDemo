@@ -22,7 +22,7 @@ extension SuperHeroListViewController {
                 self.activityIndictor.startAnimating()
             }
             self.offset = self.offset + 20
-            let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: self.offset, limit: 20)
+            let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: self.offset, limit: 20, searchQuery: "")
             self.output.fetchItems(request: request)
         }
     }
@@ -36,9 +36,16 @@ extension SuperHeroListViewController {
 extension SuperHeroListViewController: SuperHeroPresenterOutput
 {
     func successFetchedItems(viewModel: [SuperHeroList.Fetch.ViewModel.DisplayedSuperHero]) {
-        self.tableViewDataSource.displaySuperHeros.append(contentsOf: viewModel)
+       
         
         DispatchQueue.main.async() {
+            if self.searchEnabled == true {
+                self.tableViewDataSource.displaySuperHeros = viewModel
+                self.searchEnabled = false
+            } else {
+                self.tableViewDataSource.displaySuperHeros.append(contentsOf: viewModel)
+                
+            }
             self.activityIndictor.stopAnimating()
             self.tableViewDataSource.loadTableViewFromData()
             self.tableView.reloadData()

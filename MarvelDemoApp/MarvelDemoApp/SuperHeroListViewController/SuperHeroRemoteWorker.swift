@@ -20,7 +20,7 @@ class SuperHeroRemoteWorker: WebAPIHandler {
     
     func fetchMovies(request: SuperHeroList.Fetch.Request, complete :@escaping (SuperHeroList.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
         
-        getDataFromServer(url: request.mURL, type: .SuperHeroList) { (response, error) in
+        getDataFromServer(url: request.mURL) { (response, error) in
             
             guard error == nil else {
                 failure(error)

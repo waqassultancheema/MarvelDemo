@@ -11,27 +11,19 @@ import Foundation
 
 
 protocol Request {
-    func getURLRequest(url: String) -> URLRequest
+    func getURLRequest(url: String) -> URLRequest?
 }
 
 enum RequestType: Request {
-    case SuperHeroList
-    case SuperHeroSearchList
-    case SuperHeroDetail
     
     init(type: RequestType) {
         self = type
     }
     
-    func getURLRequest(url: String) -> URLRequest {
-        
-        switch self {
-        case .SuperHeroList:
-            return URLRequest(url: URL(string: url)!)
-        case .SuperHeroSearchList:
-            return URLRequest(url: URL(string: url)!)
-        case .SuperHeroDetail:
-            return URLRequest(url: URL(string: url)!)
+    func getURLRequest(url: String) -> URLRequest? {
+        if let url = URL(string: url) {
+            return URLRequest(url: url)
         }
+        return nil
     }
 }

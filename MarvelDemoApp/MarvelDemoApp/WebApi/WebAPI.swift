@@ -13,27 +13,31 @@ typealias onCompletion = (Any?, NetworkError?)->()
 
 
 protocol WebAPIHandler {
-    func getDataFromServer(url: String,type: RequestType,completion: @escaping onCompletion)
+    func getDataFromServer(url: String,completion: @escaping onCompletion)
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ())
 }
 
 extension WebAPIHandler {
     
-    func getDataFromServer(url: String, type: RequestType,completion: @escaping onCompletion) {
+    func getDataFromServer(url: String,completion: @escaping onCompletion) {
         
         guard Reachability.isConnectedToNetwork() else {
             completion(nil, NetworkError.noNetwork)
             return
         }
+        let urlString = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
       //  Logger.log(message: "URL: \(url)")
-        
-        let request = RequestType(type: type).getURLRequest(url: url)
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { (data, response, error) -> Void in
-            ParserURLResponse.parseURLResponse(response: response, data: data, completion: completion)
+        if let urL = URL(string: urlString) {
+             let request = URLRequest(url: urL)
+            let session = URLSession.shared
+            let task = session.dataTask(with: request) { (data, response, error) -> Void in
+                ParserURLResponse.parseURLResponse(response: response, data: data, completion: completion)
+            }
+            task.resume()
         }
-        task.resume()
+       
+        
+        
     }
     
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {

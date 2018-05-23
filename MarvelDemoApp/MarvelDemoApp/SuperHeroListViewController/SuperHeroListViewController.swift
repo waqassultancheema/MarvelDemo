@@ -26,6 +26,7 @@ class SuperHeroListViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var offset = 0
+    var searchEnabled = false
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -37,8 +38,9 @@ class SuperHeroListViewController: UIViewController {
         self.activityIndictor.hidesWhenStopped = true
         self.tableView.delegate = self.tableViewDataSource
         self.tableView.dataSource = self.tableViewDataSource
+        self.searchTextField.delegate = self
         activityIndictor.startAnimating()
-        let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 10)
+        let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 20, searchQuery: "")
         output.fetchItems(request: request)
         fetchMoreItemsFromServer()
         handleTableViewSelection()
@@ -60,4 +62,29 @@ class SuperHeroListViewController: UIViewController {
     }
     */
 
+}
+
+extension SuperHeroListViewController:UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+         activityIndictor.startAnimating()
+        if textField.text != "" {
+            let request = SuperHeroList.Fetch.Request(isFilteredApplied: true, offset: offset, limit: 20, searchQuery: textField.text ?? "")
+            searchEnabled = true
+            output.fetchItems(request: request)
+        } else {
+            let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 20, searchQuery:"")
+            searchEnabled = true
+            output.fetchItems(request: request)
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         textField.resignFirstResponder()
+        return true
+    }
+    
 }
