@@ -27,6 +27,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
            
             
                 let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
+                tableViewCell.configureCellWithCellType(cellType: .Comic)
                 tableViewCell.activityIndictor.stopAnimating()
                 tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
                 tableViewCell.comicURL  = (displaySuperHero?.superHero.comics.items[indexPath.row].resourceURI)!
@@ -40,6 +41,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             
             
             let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
+            tableViewCell.configureCellWithCellType(cellType: .Event)
             tableViewCell.activityIndictor.stopAnimating()
             tableViewCell.headerLabel.text = displaySuperHero?.superHero.events.items[indexPath.row].name
             if let resourceURl = (displaySuperHero?.superHero.events.items[indexPath.row].resourceURI) {
@@ -55,6 +57,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             
             
             let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
+            tableViewCell.configureCellWithCellType(cellType: .Story)
             tableViewCell.activityIndictor.stopAnimating()
             tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
             if let resourceURl = (displaySuperHero?.superHero.stories.items[indexPath.row].resourceURI) {
@@ -71,6 +74,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             
             
             let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
+            tableViewCell.configureCellWithCellType(cellType: .Series)
             tableViewCell.activityIndictor.stopAnimating()
             tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
             if let resourceURl = (displaySuperHero?.superHero.series.items[indexPath.row].resourceURI) {
@@ -140,7 +144,10 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
         return 0
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 4
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       return 50
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 && indexPath.row == 0 {

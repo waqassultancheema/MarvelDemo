@@ -7,6 +7,13 @@
 //
 
 import UIKit
+enum CellType {
+    case None
+    case Comic
+    case Event
+    case Story
+    case Series
+}
 
 protocol SuperHeroDetailTableViewCellOutput
 {
@@ -32,25 +39,26 @@ class SuperHeroDetailTableViewCell: UITableViewCell {
     let eventInstance = EventConfigurator()
     let seriesInstance = SeriesConfigurator()
     let storiesInstance = StoriesConfigurator()
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        instance.configure(cell: self)
-        eventInstance.configure(cell: self)
-        seriesInstance.configure(cell: self)
-        storiesInstance.configure(cell: self)
-
         self.activityIndictor.hidesWhenStopped = true
         
     }
     override func prepareForReuse() {
         super.prepareForReuse()
-        instance.configure(cell: self)
-        eventInstance.configure(cell: self)
-        seriesInstance.configure(cell: self)
-        storiesInstance.configure(cell: self)
     }
     
+    func configureCellWithCellType(cellType:CellType) {
+        if cellType == .Comic {
+            instance.configure(cell: self)
+        } else  if cellType == .Event {
+            eventInstance.configure(cell: self)
+        } else  if cellType == .Story {
+            storiesInstance.configure(cell: self)
+        }  else  if cellType == .Series {
+            seriesInstance.configure(cell: self)
+        }
+    }
    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
