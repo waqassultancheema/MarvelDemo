@@ -26,13 +26,24 @@ class SuperHeroListTableViewCell: UITableViewCell {
     
     func downloadImage(url: String) {
         activityIndictor.startAnimating()
+         self.backgroundImage.image = #imageLiteral(resourceName: "image_not_available")
         let urL  = URL(string: url)
         if let correctURL = urL {
-            self.backgroundImage.loadImageWithUrl(correctURL) {[unowned self] (value) in
-                if value == true {
-                    self.activityIndictor.stopAnimating()
+            ImageDownloader.image(for: correctURL) { (image) in
+                DispatchQueue.main.async() {
+                    self.activityIndictor.startAnimating()
+                    self.backgroundImage.image = image
                 }
             }
+//            ImageLoader.sharedLoader.imageForUrl(urlString: url) { (image, value) in
+//                DispatchQueue.main.async() {
+//                    self.activityIndictor.startAnimating()
+//                    self.backgroundImage.image = image
+//                }
+//            }
+//            self.backgroundImage.loadImageWithUrl(correctURL) {[unowned self] (value) in
+//                self.activityIndictor.stopAnimating()
+//            }
         }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
