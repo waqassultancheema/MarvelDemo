@@ -36,7 +36,35 @@ class SuperHeroListRouter: SuperHeroListRouterView,SuperHeroListDataPassing{
     func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let superHeroDetailViewController = segue.destination as? SuperHeroDetailViewController {
             superHeroDetailViewController.configurator = SuperHeroDetailConfigurator()
+            slicetheArray()
              superHeroDetailViewController.configurator?.superHero = dataStore
+        }
+    }
+    
+    func slicetheArray() {
+        if let array = dataStore?.superHero.comics.items {
+            if array.count >= 3 {
+                dataStore?.superHero.comics.items = Array(array[0 ..< 3])
+            } else {
+            }
+        }
+        if let array = dataStore?.superHero.events.items {
+            if array.count >= 3 {
+                dataStore?.superHero.events.items = Array(array[0 ..< 3])
+            } else {
+            }
+        }
+        if let array = dataStore?.superHero.series.items {
+            if array.count >= 3 {
+                dataStore?.superHero.series.items = Array(array[0 ..< 3])
+            } else {
+            }
+        }
+        if let array = dataStore?.superHero.stories.items {
+            if array.count >= 3 {
+                dataStore?.superHero.stories.items = Array(array[0 ..< 3])
+            } else {
+            }
         }
     }
     

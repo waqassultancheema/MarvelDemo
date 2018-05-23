@@ -45,27 +45,40 @@
                                                     <rect key="frame" x="177" y="90" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wev-6c-LAS">
-                                                    <rect key="frame" x="0.0" y="179" width="375" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="149.5" width="375" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Or0-2M-V7L"/>
+                                                    </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bX-nk-pM4">
-                                                    <rect key="frame" x="0.0" y="179" width="375" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="149.5" width="375" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txj-Qv-5Ow">
+                                                    <rect key="frame" x="340" y="11" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="beM-bU-lXO"/>
+                                                        <constraint firstAttribute="width" constant="20" id="tk3-v0-Op8"/>
+                                                    </constraints>
+                                                    <state key="normal" image="fav"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yah-V3-ucT" firstAttribute="centerY" secondItem="9vf-Of-LX6" secondAttribute="centerY" id="5WD-n9-rz8"/>
                                                 <constraint firstAttribute="trailing" secondItem="wev-6c-LAS" secondAttribute="trailing" id="6fG-vZ-GFD"/>
                                                 <constraint firstAttribute="trailing" secondItem="6bX-nk-pM4" secondAttribute="trailing" id="D68-Cf-wcB"/>
                                                 <constraint firstItem="9vf-Of-LX6" firstAttribute="top" secondItem="3Kv-FS-UnE" secondAttribute="top" id="Kd7-b8-gXX"/>
+                                                <constraint firstAttribute="trailing" secondItem="txj-Qv-5Ow" secondAttribute="trailing" constant="15" id="M8q-C8-Tnb"/>
                                                 <constraint firstItem="wev-6c-LAS" firstAttribute="leading" secondItem="3Kv-FS-UnE" secondAttribute="leading" id="PO7-N1-2Eg"/>
                                                 <constraint firstAttribute="bottom" secondItem="9vf-Of-LX6" secondAttribute="bottom" id="UMJ-G6-e6T"/>
                                                 <constraint firstItem="9vf-Of-LX6" firstAttribute="leading" secondItem="3Kv-FS-UnE" secondAttribute="leading" id="UgY-UB-2PR"/>
                                                 <constraint firstItem="wev-6c-LAS" firstAttribute="top" secondItem="6bX-nk-pM4" secondAttribute="top" id="XmT-KH-ZBY"/>
                                                 <constraint firstItem="6bX-nk-pM4" firstAttribute="leading" secondItem="3Kv-FS-UnE" secondAttribute="leading" id="YEe-hG-bWw"/>
+                                                <constraint firstItem="txj-Qv-5Ow" firstAttribute="top" secondItem="3Kv-FS-UnE" secondAttribute="top" constant="11" id="hFj-nc-63g"/>
                                                 <constraint firstAttribute="trailing" secondItem="9vf-Of-LX6" secondAttribute="trailing" id="rwr-KN-E2Z"/>
                                                 <constraint firstAttribute="bottom" secondItem="6bX-nk-pM4" secondAttribute="bottom" id="yS6-KG-Yp1"/>
                                                 <constraint firstItem="yah-V3-ucT" firstAttribute="centerX" secondItem="9vf-Of-LX6" secondAttribute="centerX" id="yx9-Lw-pUJ"/>
@@ -84,7 +97,7 @@
                                 <rect key="frame" x="177" y="380.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90514892339999997" green="0.34471327070000002" blue="0.41174346210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="t96-gf-VE1" firstAttribute="leading" secondItem="0ij-Gl-RSH" secondAttribute="leading" id="3xt-2e-vXQ"/>
                             <constraint firstItem="KUa-LO-HIl" firstAttribute="top" secondItem="0ij-Gl-RSH" secondAttribute="top" id="7HL-Yt-fpV"/>
@@ -213,7 +226,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PiO-5o-Cjd" firstAttribute="leading" secondItem="rCv-zX-thh" secondAttribute="leading" id="FDe-R5-VXP"/>
                             <constraint firstItem="h0a-bm-0Wh" firstAttribute="bottom" secondItem="PiO-5o-Cjd" secondAttribute="bottom" id="PxT-ZL-yeK"/>
@@ -247,4 +260,7 @@
             <point key="canvasLocation" x="-769" y="99"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fav" width="33" height="33"/>
+    </resources>
 </document>

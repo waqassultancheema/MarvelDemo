@@ -11,7 +11,7 @@ import Foundation
 struct Stories: Codable {
     let available: Int
     let collectionURI: String
-    let items: [StoriesItem]
+    var items: [StoriesItem]
     let returned: Int
 }
 extension Stories {

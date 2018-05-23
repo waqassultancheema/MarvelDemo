@@ -31,9 +31,9 @@ struct SuperHero: Codable {
     let name, description, modified: String
     let thumbnail: Thumbnail
     let resourceURI: String
-    let comics, series: Comics
-    let stories: Stories
-    let events: Comics
+    var comics, series: Comics
+    var stories: Stories
+    var events: Comics
     let urls: [URLs]
 }
 
