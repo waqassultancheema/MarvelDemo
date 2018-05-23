@@ -113,25 +113,25 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             if section == 1 {
                 if let comicArray = displaySuperHero?.superHero.comics.items {
                     if comicArray.count > 0 {
-                        return comicArray.count //TODO : When i set it 3 or 2.. problem come.. plz chk
+                        return comicArray.count 
                     }
                 }
             } else if section == 2 {
                 if let comicArray = displaySuperHero?.superHero.events.items {
                     if comicArray.count > 0 {
-                        return comicArray.count //TODO : When i set it 3 or 2.. problem come.. plz chk
+                        return comicArray.count
                     }
                 }
             } else if section == 3 {
                 if let comicArray = displaySuperHero?.superHero.stories.items {
                     if comicArray.count > 0 {
-                        return comicArray.count //TODO : When i set it 3 or 2.. problem come.. plz chk
+                        return comicArray.count
                     }
                 }
             } else if section == 4 {
                 if let comicArray = displaySuperHero?.superHero.series.items {
                     if comicArray.count > 0 {
-                        return comicArray.count //TODO : When i set it 3 or 2.. problem come.. plz chk
+                        return comicArray.count
                     }
                 }
             }

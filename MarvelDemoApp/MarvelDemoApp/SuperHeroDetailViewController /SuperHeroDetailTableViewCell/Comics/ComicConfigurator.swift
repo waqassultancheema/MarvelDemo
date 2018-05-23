@@ -20,7 +20,7 @@ extension SuperHeroDetailTableViewCell: ComicsPresenterOutput
         DispatchQueue.main.async() {
             self.activityIndictor.stopAnimating()
             self.headerLabel.text = viewModel.name
-            self.descriptionLabel.text = viewModel.detail
+            self.descriptionLabel.text = viewModel.detail.count > 0 ? viewModel.detail : "No Description Found"
         }
       
         
