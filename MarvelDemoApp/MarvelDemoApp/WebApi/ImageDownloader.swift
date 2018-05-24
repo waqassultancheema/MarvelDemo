@@ -8,28 +8,42 @@
 
 import UIKit
 
-class ImageDownloader {
+let imageCache = NSCache<NSString, UIImage>()
+
+class ImageDownloader: UIImageView,WebAPIHandler {
     
-    static var shared = ImageDownloader()
-    private let cache = NSCache<NSString, NSData>()
+    var imageUrlString: String?
     
-    class func image(for url: URL, completionHandler: @escaping(_ image: UIImage?) -> ()) {
+    func loadImageUsingUrlString(urlString: String) {
         
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-            
-            if let data = ImageDownloader.shared.cache.object(forKey: url.absoluteString as NSString) {
-                DispatchQueue.main.async { completionHandler(UIImage(data: data as Data)) }
+        imageUrlString = urlString
+        
+        let url = URL(string: urlString)
+        
+        image = nil
+        
+        if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
+            self.image = imageFromCache
+            return
+        }
+        getDataFromUrl(url: url!) {[unowned self] (data, response, error) in
+            if error != nil {
+                print(error ?? "")
                 return
             }
             
-            guard let data = NSData(contentsOf: url) else {
-                DispatchQueue.main.async { completionHandler(nil) }
-                return
+            DispatchQueue.main.async {
+                
+                let imageToCache = UIImage(data: data!)
+                
+                if self.imageUrlString == urlString {
+                    self.image = imageToCache
+                }
+                
+                imageCache.setObject(imageToCache!, forKey: urlString as NSString)
             }
-            
-            ImageDownloader.shared.cache.setObject(data, forKey: url.absoluteString as NSString)
-            DispatchQueue.main.async { completionHandler(UIImage(data: data as Data)) }
         }
     }
     
 }
+
