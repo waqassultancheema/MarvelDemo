@@ -24,8 +24,8 @@ class SuperHeroListViewDataSource: NSObject,UITableViewDelegate,UITableViewDataS
         let displaySuperHero:SuperHeroList.Fetch.ViewModel.DisplayedSuperHero = displaySuperHeros[indexPath.row]
         tableViewCell.headerLabel.text = displaySuperHero.name
         tableViewCell.downloadImage(url: displaySuperHero.imageString)
-        
-        
+        tableViewCell.idOfSuperHero = displaySuperHero.superHero.id
+        tableViewCell.favButton.isSelected = SaveFavourite.fetchFavouriteSelection(idOfSuperHero: displaySuperHero.superHero.id)
         return tableViewCell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

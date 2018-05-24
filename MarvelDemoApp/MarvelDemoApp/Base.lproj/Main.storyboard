@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,7 +65,11 @@
                                                         <constraint firstAttribute="height" constant="20" id="beM-bU-lXO"/>
                                                         <constraint firstAttribute="width" constant="20" id="tk3-v0-Op8"/>
                                                     </constraints>
-                                                    <state key="normal" image="fav"/>
+                                                    <state key="normal" image="icBookmark"/>
+                                                    <state key="selected" image="icBookmarkSelected"/>
+                                                    <connections>
+                                                        <action selector="btnFavouriteTapped:" destination="ew5-K0-Xvv" eventType="touchUpInside" id="Qjo-uw-Ndl"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -88,6 +93,7 @@
                                         <connections>
                                             <outlet property="activityIndictor" destination="yah-V3-ucT" id="UTS-wh-LKv"/>
                                             <outlet property="backgroundImage" destination="9vf-Of-LX6" id="amH-B4-7VI"/>
+                                            <outlet property="favButton" destination="txj-Qv-5Ow" id="Soa-5w-tyc"/>
                                             <outlet property="headerLabel" destination="6bX-nk-pM4" id="XLa-Mw-kJi"/>
                                         </connections>
                                     </tableViewCell>
@@ -145,6 +151,18 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zwp-Si-zWW">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLf-yJ-9Oq">
+                                                    <rect key="frame" x="340" y="10" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="YLf-yJ-9Oq" secondAttribute="height" multiplier="1:1" id="dPL-nr-t60"/>
+                                                        <constraint firstAttribute="height" constant="20" id="fUo-hW-zIF"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icBookmark"/>
+                                                    <state key="selected" image="icBookmarkSelected"/>
+                                                    <connections>
+                                                        <action selector="btnFavouriteTapped:" destination="Bdk-kJ-y5R" eventType="touchUpInside" id="xO0-3y-xgP"/>
+                                                    </connections>
+                                                </button>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="159-dh-O0J">
                                                     <rect key="frame" x="177" y="90" width="20" height="20"/>
                                                 </activityIndicatorView>
@@ -163,10 +181,12 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="lxT-vS-3oz" secondAttribute="bottom" id="5dw-i9-deJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="lxT-vS-3oz" secondAttribute="trailing" id="H6S-fq-2tD"/>
+                                                <constraint firstItem="YLf-yJ-9Oq" firstAttribute="top" secondItem="4ch-K2-mvt" secondAttribute="top" constant="10" id="HDv-oj-oo0"/>
                                                 <constraint firstItem="zwp-Si-zWW" firstAttribute="top" secondItem="4ch-K2-mvt" secondAttribute="top" id="JJC-Mz-fH6"/>
                                                 <constraint firstItem="mIL-Xl-a7T" firstAttribute="top" secondItem="lxT-vS-3oz" secondAttribute="top" id="NBY-VB-NPz"/>
                                                 <constraint firstItem="mIL-Xl-a7T" firstAttribute="leading" secondItem="4ch-K2-mvt" secondAttribute="leading" id="QLm-Wh-R38"/>
                                                 <constraint firstItem="zwp-Si-zWW" firstAttribute="leading" secondItem="4ch-K2-mvt" secondAttribute="leading" id="QeP-in-IYu"/>
+                                                <constraint firstAttribute="trailing" secondItem="YLf-yJ-9Oq" secondAttribute="trailing" constant="15" id="TEv-pY-HR4"/>
                                                 <constraint firstItem="159-dh-O0J" firstAttribute="centerX" secondItem="zwp-Si-zWW" secondAttribute="centerX" id="ZJh-qt-2KC"/>
                                                 <constraint firstAttribute="trailing" secondItem="mIL-Xl-a7T" secondAttribute="trailing" id="Zvw-TG-963"/>
                                                 <constraint firstAttribute="bottom" secondItem="mIL-Xl-a7T" secondAttribute="bottom" id="ixK-FG-Sk8"/>
@@ -179,6 +199,7 @@
                                         <connections>
                                             <outlet property="activityIndictor" destination="159-dh-O0J" id="CqB-E6-9Hd"/>
                                             <outlet property="backgroundImage" destination="zwp-Si-zWW" id="YRL-GI-nl4"/>
+                                            <outlet property="favButton" destination="YLf-yJ-9Oq" id="MiV-Dp-10X"/>
                                             <outlet property="headerLabel" destination="lxT-vS-3oz" id="t8Q-1q-cEm"/>
                                         </connections>
                                     </tableViewCell>
@@ -261,6 +282,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fav" width="33" height="33"/>
+        <image name="icBookmark" width="17" height="16"/>
+        <image name="icBookmarkSelected" width="17" height="16"/>
     </resources>
 </document>

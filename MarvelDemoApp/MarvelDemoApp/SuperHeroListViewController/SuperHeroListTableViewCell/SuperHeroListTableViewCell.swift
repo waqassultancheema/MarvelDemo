@@ -9,10 +9,14 @@
 import UIKit
 
 class SuperHeroListTableViewCell: UITableViewCell {
+    
+    
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
+    @IBOutlet weak var favButton: UIButton!
+    var idOfSuperHero:Int = 0
     override func awakeFromNib() {
         super.awakeFromNib()
         self.activityIndictor.hidesWhenStopped = true
@@ -44,6 +48,16 @@ class SuperHeroListTableViewCell: UITableViewCell {
 //            self.backgroundImage.loadImageWithUrl(correctURL) {[unowned self] (value) in
 //                self.activityIndictor.stopAnimating()
 //            }
+        }
+    }
+    @IBAction func btnFavouriteTapped(_ sender: Any) {
+        let button:UIButton = sender as! UIButton
+        button.isSelected  =   !button.isSelected
+        
+        if button.isSelected {
+            SaveFavourite.saveFavouriteSelection(idOfSuperHero: idOfSuperHero)
+        } else {
+            SaveFavourite.removeFavouriteSelection(idOfSuperHero: idOfSuperHero)
         }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {

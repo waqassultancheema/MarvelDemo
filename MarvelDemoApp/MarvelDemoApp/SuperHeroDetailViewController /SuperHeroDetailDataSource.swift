@@ -21,6 +21,8 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
                 let tableViewCell:SuperHeroListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroListTableViewCell", for: indexPath) as! SuperHeroListTableViewCell
                 tableViewCell.headerLabel.text = displaySuperHero?.name
                 tableViewCell.downloadImage(url: (displaySuperHero?.imageString)!)
+                tableViewCell.idOfSuperHero = displaySuperHero?.superHero.id ?? 0
+                tableViewCell.favButton.isSelected = SaveFavourite.fetchFavouriteSelection(idOfSuperHero: displaySuperHero?.superHero.id ?? 0)
                 return tableViewCell
             }
         } else if indexPath.section == 1 {
