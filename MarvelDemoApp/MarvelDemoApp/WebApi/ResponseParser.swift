@@ -13,8 +13,8 @@ class MyError: Codable {
     var status_code: Int
     
     private enum CodingKeys: String, CodingKey {
-        case status_code = "status_code"
-        case status_message = "status_message"
+        case status_code = "code"
+        case status_message = "status"
     }
 }
 
