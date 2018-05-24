@@ -18,8 +18,6 @@ class ImageDownloader: UIImageView,WebAPIHandler {
         
         imageUrlString = urlString
         
-        let url = URL(string: urlString)
-        
         image = nil
         
         if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
@@ -29,7 +27,7 @@ class ImageDownloader: UIImageView,WebAPIHandler {
             }
             return
         }
-        getDataFromUrl(url: url!) {[unowned self] (data, response, error) in
+        getDataFromServer(url: urlString) {[unowned self] (data, error) in
             if error != nil {
                 print(error ?? "")
                  DispatchQueue.main.async {
@@ -41,13 +39,14 @@ class ImageDownloader: UIImageView,WebAPIHandler {
             
             DispatchQueue.main.async {
                 
-                let imageToCache = UIImage(data: data!)
+                let imageToCache = UIImage(data: data as! Data)
                 
                 if self.imageUrlString == urlString {
                     self.image = imageToCache
                 }
-                
-                imageCache.setObject(imageToCache!, forKey: urlString as NSString)
+                if let imageToCac = imageToCache {
+                    imageCache.setObject(imageToCac, forKey: urlString as NSString)
+                }
                 activityIndictor.stopAnimating()
             }
         }
