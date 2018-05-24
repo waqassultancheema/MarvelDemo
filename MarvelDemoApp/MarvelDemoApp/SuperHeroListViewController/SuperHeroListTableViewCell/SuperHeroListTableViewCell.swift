@@ -33,13 +33,7 @@ class SuperHeroListTableViewCell: UITableViewCell {
          self.backgroundImage.image = #imageLiteral(resourceName: "image_not_available")
         self.backgroundImage.image  = nil
         if let correctURL = URL(string: url) {
-            backgroundImage.loadImageUsingUrlString(urlString: url)
-//            ImageDownloader.image(for: correctURL) {[weak self] (image) in
-//                DispatchQueue.main.async() {
-//                    self?.activityIndictor.stopAnimating()
-//                    self?.backgroundImage.image = image
-//                }
-          //  }
+            backgroundImage.loadImageUsingUrlString(urlString: url, activityIndictor: activityIndictor)
         }
     }
     @IBAction func btnFavouriteTapped(_ sender: Any) {
