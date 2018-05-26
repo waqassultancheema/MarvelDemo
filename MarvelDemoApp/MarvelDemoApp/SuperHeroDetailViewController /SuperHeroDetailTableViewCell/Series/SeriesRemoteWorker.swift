@@ -38,7 +38,6 @@ class SeriesRemoteWorker: WebAPIHandler {
             }
         }
 
-        failure(nil)
     }
     
     

@@ -37,8 +37,6 @@ class EventsRemoteWorker: WebAPIHandler {
                 }
             }
         }
-
-        failure(nil)
     }
     
     

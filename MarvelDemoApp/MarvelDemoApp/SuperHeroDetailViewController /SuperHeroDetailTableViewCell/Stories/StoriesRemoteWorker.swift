@@ -38,7 +38,6 @@ class StoriesRemoteWorker: WebAPIHandler {
             }
         }
 
-        //complete(response)
     }
     
     

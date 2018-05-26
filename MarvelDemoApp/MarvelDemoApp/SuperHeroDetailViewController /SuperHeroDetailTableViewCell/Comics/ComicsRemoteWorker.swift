@@ -38,7 +38,6 @@ class ComicsRemoteWorker: WebAPIHandler {
             }
         }
 
-        failure(nil)
     }
     
     

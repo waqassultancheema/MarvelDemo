@@ -30,7 +30,7 @@ class SuperHeroListTableViewCell: UITableViewCell {
     
     func downloadImage(url: String) {
         activityIndictor.startAnimating()
-         self.backgroundImage.image = #imageLiteral(resourceName: "image_not_available")
+        self.backgroundImage.image = #imageLiteral(resourceName: "image_not_available")
         self.backgroundImage.image  = nil
         backgroundImage.loadImageUsingUrlString(urlString: url, activityIndictor: activityIndictor)
         
