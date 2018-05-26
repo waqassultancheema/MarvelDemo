@@ -39,13 +39,17 @@ class ImageDownloader: UIImageView,WebAPIHandler {
             
             DispatchQueue.main.async {
                 
-                let imageToCache = UIImage(data: data as! Data)
-                
-                if self.imageUrlString == urlString {
-                    self.image = imageToCache
-                }
-                if let imageToCac = imageToCache {
-                    imageCache.setObject(imageToCac, forKey: urlString as NSString)
+                if let d = data {
+                    let imageToCache = UIImage(data: d as! Data)
+                    
+                    if self.imageUrlString == urlString {
+                        self.image = imageToCache
+                    }
+                    if let imageToCac = imageToCache {
+                        imageCache.setObject(imageToCac, forKey: urlString as NSString)
+                    }
+                } else {
+                    self.image  = #imageLiteral(resourceName: "image_not_available")
                 }
                 activityIndictor.stopAnimating()
             }
