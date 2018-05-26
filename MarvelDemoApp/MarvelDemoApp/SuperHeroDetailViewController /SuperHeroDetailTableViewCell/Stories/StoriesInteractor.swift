@@ -22,21 +22,20 @@ protocol StoriesInteractorOutput: class {
 class StoriesInteractor:StoriesInteractorInput {
 
     weak var output: StoriesInteractorOutput?
-    var worker: StoriesRemoteWorker!
+    var worker: StoriesWorker!
     
     func fetchStories(request: StoriesModel.Fetch.Request) {
-        
-//        if request.parameters.count  == 0  {
-//           self.output.presentfetchData(movies: [])
-//        }
-        worker = StoriesRemoteWorker()
-        worker.fetchData(request: request, complete: { (response) in
-            self.output?.presentFetchedStories(response: response)
-        }) { (error) in
-            self.output?.presentError(errorString: error?.localizedDescription ?? "")
-           // self.output.presentFetchedSuperHeros(response: nil)
+        worker = StoriesWorker()
+        worker.output = self
+        worker.fetchStoriess(request: request)
+    }
+}
 
-        }
-       }
-
+extension StoriesInteractor: StoriesWorkerOutput {
+    func presentFetchedStories(response: StoriesModel.Fetch.Response) {
+        self.output?.presentFetchedStories(response: response)
+    }
+    
+    
+    
 }

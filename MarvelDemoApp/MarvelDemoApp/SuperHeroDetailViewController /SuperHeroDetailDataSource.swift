@@ -32,9 +32,10 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
                 tableViewCell.configureCellWithCellType(cellType: .Comic)
                 tableViewCell.activityIndictor.stopAnimating()
                 tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
-                tableViewCell.comicURL  = (displaySuperHero?.superHero.comics.items[indexPath.row].resourceURI)!
-                tableViewCell.requestComic =  ComicsModel.Fetch.Request(comicURL: tableViewCell.comicURL)
-                tableViewCell.sendComicServiceRequest()
+            if let comicItem = (displaySuperHero?.superHero.comics.items[indexPath.row]) {
+                tableViewCell.requestComic = ComicsModel.Fetch.Request(comicURL: comicItem.resourceURI, eventID: comicItem.name)
+            }
+               tableViewCell.sendComicServiceRequest()
             
             
                 return tableViewCell
@@ -62,8 +63,8 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             tableViewCell.configureCellWithCellType(cellType: .Story)
             tableViewCell.activityIndictor.stopAnimating()
             tableViewCell.headerLabel.text = displaySuperHero?.superHero.stories.items[indexPath.row].name
-            if let resourceURl = (displaySuperHero?.superHero.stories.items[indexPath.row].resourceURI) {
-                tableViewCell.requestStories =  StoriesModel.Fetch.Request(storiesURL: resourceURl)
+            if let storiesItem = (displaySuperHero?.superHero.stories.items[indexPath.row]) {
+                tableViewCell.requestStories =  StoriesModel.Fetch.Request(storiesURL: storiesItem.resourceURI, eventID: storiesItem.name)
                 
             }
 
