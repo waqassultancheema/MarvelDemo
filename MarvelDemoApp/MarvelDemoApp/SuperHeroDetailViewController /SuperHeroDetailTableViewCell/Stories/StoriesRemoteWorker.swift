@@ -38,7 +38,7 @@ class StoriesRemoteWorker: WebAPIHandler {
             }
         }
 
-        failure(nil)
+        //complete(response)
     }
     
     

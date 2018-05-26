@@ -25,15 +25,12 @@ class EventsInteractor:EventsInteractorInput {
     
     func fetchEvent(request: EventsModel.Fetch.Request) {
         
-//        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
-//        }
+
         worker = EventsRemoteWorker()
         worker.fetchMovies(request: request, complete: { (response) in
             self.output?.presentFetchedEvent(response: response)
         }) { (error) in
-           // self.output.presentFetchedSuperHeros(response: nil)
-
+              print(error ?? "")
         }
        }
 

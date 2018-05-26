@@ -16,6 +16,7 @@ protocol StoriesInteractorInput {
 
 protocol StoriesInteractorOutput: class {
     func presentFetchedStories(response:StoriesModel.Fetch.Response)
+    func presentError(errorString:String)
 
 }
 class StoriesInteractor:StoriesInteractorInput {
@@ -32,6 +33,7 @@ class StoriesInteractor:StoriesInteractorInput {
         worker.fetchMovies(request: request, complete: { (response) in
             self.output?.presentFetchedStories(response: response)
         }) { (error) in
+            self.output?.presentError(errorString: error?.localizedDescription ?? "")
            // self.output.presentFetchedSuperHeros(response: nil)
 
         }
