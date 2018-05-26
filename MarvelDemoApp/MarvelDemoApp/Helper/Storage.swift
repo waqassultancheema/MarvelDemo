@@ -4,7 +4,7 @@
 //
 //  Created by Waqas Sultan on 5/26/18.
 //  Copyright © 2018 Waqas Sultan. All rights reserved.
-//
+// Copy from https://gist.github.com/saoudrizwan/b7ab1febde724c6f30d8a555ea779140
 
 import UIKit
 

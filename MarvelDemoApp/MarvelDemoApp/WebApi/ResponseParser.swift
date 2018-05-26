@@ -24,10 +24,6 @@ struct ParserURLResponse {
         if let httpResponse = response as? HTTPURLResponse {
             
             let code = httpResponse.statusCode
-            
-//            Logger.log(message: "statusCode: \(code)")
-//            Logger.log(message: "Response: \(String(describing: String(data: data!, encoding: .utf8)))")
-//
             if code == 200 {
                 completion(data, nil)
             }
