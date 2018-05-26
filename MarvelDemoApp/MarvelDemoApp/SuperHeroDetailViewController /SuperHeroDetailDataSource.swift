@@ -79,8 +79,8 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             tableViewCell.configureCellWithCellType(cellType: .Series)
             tableViewCell.activityIndictor.stopAnimating()
             tableViewCell.headerLabel.text = displaySuperHero?.superHero.series.items[indexPath.row].name
-            if let resourceURl = (displaySuperHero?.superHero.series.items[indexPath.row].resourceURI) {
-                tableViewCell.requestSeries =  SeriesModel.Fetch.Request(seriesURL: resourceURl)
+            if let seriesitem = (displaySuperHero?.superHero.series.items[indexPath.row]) {
+                tableViewCell.requestSeries =  SeriesModel.Fetch.Request(seriesURL: seriesitem.resourceURI, eventID: seriesitem.name)
                 
             }
 
@@ -146,7 +146,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
         return 0
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
        return 50

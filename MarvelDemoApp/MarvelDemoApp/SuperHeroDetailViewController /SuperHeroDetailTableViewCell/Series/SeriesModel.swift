@@ -20,11 +20,15 @@ enum SeriesModel
         struct Request
         {
             var seriesURL:String = ""
-            
+            var eventID:String = ""
             var mURL: String {
                
             let url = String(format: "\(seriesURL)" + "?ts=\(Constant.SUPER_HERO_SERIES_URL.timeStamp)&apikey=\(Constant.API_KEY)&hash=\(Constant.SUPER_HERO_SERIES_URL.hash)")
                     return url
+            }
+            var localSaveURL: String {
+                let url = String(format: "\(eventID).json")
+                return url
             }
         }
         struct Response: Codable {
