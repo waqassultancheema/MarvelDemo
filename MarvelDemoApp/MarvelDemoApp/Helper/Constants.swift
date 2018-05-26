@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 enum Constant {
     case SUPER_HERO_LIST_URL
     case SUPER_HERO_COMICS_URL
@@ -17,16 +16,19 @@ enum Constant {
 
     static let BASE_URL = "https://gateway.marvel.com/v1/public"
     static let API_KEY = "4e58a69173498255e53a2f700a2ae54a"
+    static let PRIVATE_API_KEY = "f6b2c2f18fcb21c3e41de50636880647bed08c54"
     static var IMAGE_URL = ""
     
     static func makeImagePath(url: String) -> String {
         return (Constant.IMAGE_URL + url)
     }
     var hash: String {
-        return "e4862dd7fb9ed77558b02711ee240469"
+        let has = String(timeStamp + Constant.PRIVATE_API_KEY + Constant.API_KEY)
+        return has.md5()
+        //"e4862dd7fb9ed77558b02711ee240469"
     }
     var timeStamp:String {
-        return "1"
+        return String(Date().ticks)
     }
     var path: String {
         switch self {
@@ -64,3 +66,22 @@ enum Constant {
 //    }
     
 }
+
+extension String {
+    func md5() -> String! {
+        let context = UnsafeMutablePointer<CC_MD5_CTX>.allocate(capacity: 1)
+        var digest = Array<UInt8>(repeating:0, count:Int(CC_MD5_DIGEST_LENGTH))
+        CC_MD5_Init(context)
+        CC_MD5_Update(context, self, CC_LONG(self.lengthOfBytes(using: String.Encoding.utf8)))
+        CC_MD5_Final(&digest, context)
+        context.deallocate(capacity: 1)
+        var hexString = ""
+        for byte in digest {
+            hexString += String(format:"%02x", byte)
+        }
+        
+        return hexString
+    }
+
+}
+
