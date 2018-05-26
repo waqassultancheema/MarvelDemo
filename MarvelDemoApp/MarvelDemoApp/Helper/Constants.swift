@@ -13,41 +13,44 @@ enum Constant {
     case SUPER_HERO_EVENTS_URL
     case SUPER_HERO_STORIES_URL
     case SUPER_HERO_SERIES_URL
-
+//5AC7FFD29B1FDFF3680137660658F29D
+    
+    //
     static let BASE_URL = "https://gateway.marvel.com/v1/public"
     static let API_KEY = "4e58a69173498255e53a2f700a2ae54a"
     static let PRIVATE_API_KEY = "f6b2c2f18fcb21c3e41de50636880647bed08c54"
     static var IMAGE_URL = ""
-    
+
     static func makeImagePath(url: String) -> String {
         return (Constant.IMAGE_URL + url)
     }
-    var hash: String {
-        let has = String(timeStamp + Constant.PRIVATE_API_KEY + Constant.API_KEY)
-        return has.md5()
-        //"e4862dd7fb9ed77558b02711ee240469"
-    }
+ 
     var timeStamp:String {
         return String(Date().ticks)
+    }
+    func makeHash(timeStamp:String) -> String {
+        let has = String(timeStamp + Constant.PRIVATE_API_KEY + Constant.API_KEY)
+        return has.md5()
     }
     var path: String {
         switch self {
         case .SUPER_HERO_LIST_URL:
-            
-            return Constant.BASE_URL + "/characters?ts=\(timeStamp)&apikey=\(Constant.API_KEY)&hash=\(hash)"
+            let timeS = timeStamp
+            return Constant.BASE_URL + "/characters?ts=\(timeS)&apikey=\(Constant.API_KEY)&hash=\(makeHash(timeStamp: timeS))"
             
         case .SUPER_HERO_COMICS_URL:
             
             return Constant.BASE_URL + "/comics/"
         case .SUPER_HERO_EVENTS_URL:
-            
-            return Constant.BASE_URL + "/characters?ts=\(timeStamp)&apikey=\(Constant.API_KEY)&hash=\(hash)"
+            let timeS = timeStamp
+            return Constant.BASE_URL + "/characters?ts=\(timeS)&apikey=\(Constant.API_KEY)&hash=\(makeHash(timeStamp: timeS))"
         case .SUPER_HERO_STORIES_URL:
-            
-            return Constant.BASE_URL + "/characters?ts=\(timeStamp)&apikey=\(Constant.API_KEY)&hash=\(hash)"
+            let timeS = timeStamp
+            return Constant.BASE_URL + "/characters?ts=\(timeS)&apikey=\(Constant.API_KEY)&hash=\(makeHash(timeStamp: timeS))"
         case .SUPER_HERO_SERIES_URL:
-            
-            return Constant.BASE_URL + "/characters?ts=\(timeStamp)&apikey=\(Constant.API_KEY)&hash=\(hash)"
+            let timeS = timeStamp
+
+            return Constant.BASE_URL + "/characters?ts=\(timeS)&apikey=\(Constant.API_KEY)&hash=\(makeHash(timeStamp: timeS))"
         }
     }
     
@@ -66,7 +69,7 @@ enum Constant {
 //    }
     
 }
-
+// https://stackoverflow.com/questions/32163848/how-to-convert-string-to-md5-hash-using-ios-swift
 extension String {
     func md5() -> String! {
         let context = UnsafeMutablePointer<CC_MD5_CTX>.allocate(capacity: 1)

@@ -32,6 +32,10 @@ class StoriesInteractor:StoriesInteractorInput {
 }
 
 extension StoriesInteractor: StoriesWorkerOutput {
+    func presentError(error: String) {
+        self.output?.presentError(errorString: error)
+    }
+    
     func presentFetchedStories(response: StoriesModel.Fetch.Response) {
         self.output?.presentFetchedStories(response: response)
     }

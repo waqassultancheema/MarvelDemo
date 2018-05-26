@@ -16,6 +16,7 @@ protocol StoriesWorkerInput {
 
 protocol StoriesWorkerOutput {
     func presentFetchedStories(response:StoriesModel.Fetch.Response)
+    func presentError(error:String)
     
 }
 class StoriesWorker:StoriesWorkerInput {
@@ -41,7 +42,8 @@ class StoriesWorker:StoriesWorkerInput {
                 self.output?.presentFetchedStories(response: response)
                 
             }) { (error) in
-                
+                self.output?.presentError(error:error?.localizedDescription ?? "")
+
                 print(error ?? "")
                 
             }

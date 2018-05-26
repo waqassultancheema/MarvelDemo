@@ -22,8 +22,10 @@ enum SeriesModel
             var seriesURL:String = ""
             var eventID:String = ""
             var mURL: String {
-               
-            let url = String(format: "\(seriesURL)" + "?ts=\(Constant.SUPER_HERO_SERIES_URL.timeStamp)&apikey=\(Constant.API_KEY)&hash=\(Constant.SUPER_HERO_SERIES_URL.hash)")
+                               
+                let timeS = Constant.SUPER_HERO_COMICS_URL.timeStamp
+                
+                let url = String(format: "\(seriesURL)" + "?ts=\(timeS)&apikey=\(Constant.API_KEY)&hash=\(Constant.SUPER_HERO_SERIES_URL.makeHash(timeStamp: timeS))")
                     return url
             }
             var localSaveURL: String {

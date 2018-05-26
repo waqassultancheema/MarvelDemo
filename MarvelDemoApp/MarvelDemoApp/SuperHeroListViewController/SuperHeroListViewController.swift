@@ -73,6 +73,7 @@ extension SuperHeroListViewController:UITextFieldDelegate {
             searchEnabled = true
             output.fetchItems(request: request)
         } else {
+            offset = 0
             let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 20, searchQuery:"")
             searchEnabled = true
             output.fetchItems(request: request)

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Search Here" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-LO-HIl">
-                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <rect key="frame" x="10" y="74" width="320" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kkG-ZS-qlp"/>
@@ -28,15 +28,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJl-WY-lsU">
+                                <rect key="frame" x="340" y="84" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Ota-bF-oLG"/>
+                                    <constraint firstAttribute="width" secondItem="xJl-WY-lsU" secondAttribute="height" multiplier="1:1" id="gE8-QK-UVx"/>
+                                </constraints>
+                                <state key="normal" image="search"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t96-gf-VE1">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="10" y="134" width="355" height="533"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperHeroListTableViewCell" rowHeight="200" id="ew5-K0-Xvv" customClass="SuperHeroListTableViewCell" customModule="MarvelDemoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="355" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ew5-K0-Xvv" id="3Kv-FS-UnE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9vf-Of-LX6" customClass="ImageDownloader" customModule="MarvelDemoApp" customModuleProvider="target">
@@ -100,20 +109,22 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Zac-ku-cIs">
-                                <rect key="frame" x="177" y="380.5" width="20" height="20"/>
+                                <rect key="frame" x="177" y="390.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="t96-gf-VE1" firstAttribute="leading" secondItem="0ij-Gl-RSH" secondAttribute="leading" id="3xt-2e-vXQ"/>
-                            <constraint firstItem="KUa-LO-HIl" firstAttribute="top" secondItem="0ij-Gl-RSH" secondAttribute="top" id="7HL-Yt-fpV"/>
+                            <constraint firstItem="t96-gf-VE1" firstAttribute="leading" secondItem="0ij-Gl-RSH" secondAttribute="leading" constant="10" id="3xt-2e-vXQ"/>
+                            <constraint firstItem="KUa-LO-HIl" firstAttribute="top" secondItem="0ij-Gl-RSH" secondAttribute="top" constant="10" id="7HL-Yt-fpV"/>
+                            <constraint firstItem="0ij-Gl-RSH" firstAttribute="trailing" secondItem="xJl-WY-lsU" secondAttribute="trailing" constant="5" id="Dtv-mi-2aT"/>
                             <constraint firstItem="0ij-Gl-RSH" firstAttribute="bottom" secondItem="t96-gf-VE1" secondAttribute="bottom" id="DvK-BG-Jrw"/>
-                            <constraint firstAttribute="trailing" secondItem="KUa-LO-HIl" secondAttribute="trailing" id="G2o-1R-euV"/>
-                            <constraint firstItem="0ij-Gl-RSH" firstAttribute="trailing" secondItem="t96-gf-VE1" secondAttribute="trailing" id="Y3b-W4-tU9"/>
-                            <constraint firstItem="KUa-LO-HIl" firstAttribute="leading" secondItem="OxJ-gb-H70" secondAttribute="leading" id="cAl-85-cSa"/>
+                            <constraint firstItem="0ij-Gl-RSH" firstAttribute="trailing" secondItem="t96-gf-VE1" secondAttribute="trailing" constant="10" id="Y3b-W4-tU9"/>
+                            <constraint firstItem="KUa-LO-HIl" firstAttribute="leading" secondItem="OxJ-gb-H70" secondAttribute="leading" constant="10" id="cAl-85-cSa"/>
+                            <constraint firstItem="xJl-WY-lsU" firstAttribute="centerY" secondItem="KUa-LO-HIl" secondAttribute="centerY" id="dvc-Tq-fwI"/>
                             <constraint firstItem="Zac-ku-cIs" firstAttribute="centerY" secondItem="t96-gf-VE1" secondAttribute="centerY" id="hqb-La-Ihy"/>
                             <constraint firstItem="Zac-ku-cIs" firstAttribute="centerX" secondItem="t96-gf-VE1" secondAttribute="centerX" id="o39-NX-Ya4"/>
-                            <constraint firstItem="t96-gf-VE1" firstAttribute="top" secondItem="KUa-LO-HIl" secondAttribute="bottom" id="zxT-qO-9qN"/>
+                            <constraint firstItem="xJl-WY-lsU" firstAttribute="leading" secondItem="KUa-LO-HIl" secondAttribute="trailing" constant="10" id="u4N-bD-CFt"/>
+                            <constraint firstItem="t96-gf-VE1" firstAttribute="top" secondItem="KUa-LO-HIl" secondAttribute="bottom" constant="10" id="zxT-qO-9qN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0ij-Gl-RSH"/>
                     </view>
@@ -138,14 +149,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PiO-5o-Cjd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="10" y="0.0" width="355" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperHeroListTableViewCell" rowHeight="200" id="Bdk-kJ-y5R" customClass="SuperHeroListTableViewCell" customModule="MarvelDemoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="355" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bdk-kJ-y5R" id="4ch-K2-mvt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zwp-Si-zWW" customClass="ImageDownloader" customModule="MarvelDemoApp" customModuleProvider="target">
@@ -204,10 +215,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperHeroDetailTableViewCell" id="t2E-Rg-uYi" customClass="SuperHeroDetailTableViewCell" customModule="MarvelDemoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="228" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="228" width="355" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t2E-Rg-uYi" id="PPL-5M-osf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcc-yU-90E">
@@ -252,12 +263,12 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PiO-5o-Cjd" firstAttribute="leading" secondItem="rCv-zX-thh" secondAttribute="leading" id="FDe-R5-VXP"/>
+                            <constraint firstItem="PiO-5o-Cjd" firstAttribute="leading" secondItem="rCv-zX-thh" secondAttribute="leading" constant="10" id="FDe-R5-VXP"/>
                             <constraint firstItem="h0a-bm-0Wh" firstAttribute="bottom" secondItem="PiO-5o-Cjd" secondAttribute="bottom" id="PxT-ZL-yeK"/>
                             <constraint firstItem="PiO-5o-Cjd" firstAttribute="top" secondItem="rCv-zX-thh" secondAttribute="top" id="e1l-eq-523"/>
-                            <constraint firstItem="h0a-bm-0Wh" firstAttribute="trailing" secondItem="PiO-5o-Cjd" secondAttribute="trailing" id="ts2-XM-Tz0"/>
+                            <constraint firstItem="h0a-bm-0Wh" firstAttribute="trailing" secondItem="PiO-5o-Cjd" secondAttribute="trailing" constant="10" id="ts2-XM-Tz0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h0a-bm-0Wh"/>
                     </view>
@@ -289,5 +300,6 @@
     <resources>
         <image name="icBookmark" width="17" height="16"/>
         <image name="icBookmarkSelected" width="17" height="16"/>
+        <image name="search" width="76" height="76"/>
     </resources>
 </document>
