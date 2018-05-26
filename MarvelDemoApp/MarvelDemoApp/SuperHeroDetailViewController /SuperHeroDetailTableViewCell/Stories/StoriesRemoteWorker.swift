@@ -18,7 +18,7 @@ import UIKit
 class StoriesRemoteWorker: WebAPIHandler {
    
     
-    func fetchMovies(request: StoriesModel.Fetch.Request, complete :@escaping (StoriesModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
+    func fetchData(request: StoriesModel.Fetch.Request, complete :@escaping (StoriesModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
         
         getDataFromServer(url: request.mURL) { (response, error) in
             

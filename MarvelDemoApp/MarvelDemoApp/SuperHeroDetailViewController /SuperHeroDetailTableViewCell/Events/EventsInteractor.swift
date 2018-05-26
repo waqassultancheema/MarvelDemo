@@ -21,17 +21,19 @@ protocol EventsInteractorOutput: class {
 class EventsInteractor:EventsInteractorInput {
 
     weak var output: EventsInteractorOutput?
-    var worker: EventsRemoteWorker!
+    var worker: EventWorker!
     
     func fetchEvent(request: EventsModel.Fetch.Request) {
-        
+        worker = EventWorker()
+        worker.output  = self
+        worker.fetchEvents(request: request)
+    }
+}
 
-        worker = EventsRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
-            self.output?.presentFetchedEvent(response: response)
-        }) { (error) in
-              print(error ?? "")
-        }
-       }
-
+extension EventsInteractor: EventWorkerOutput {
+    func presentFetchedEvent(response: EventsModel.Fetch.Response) {
+        self.output?.presentFetchedEvent(response: response)
+    }
+    
+    
 }

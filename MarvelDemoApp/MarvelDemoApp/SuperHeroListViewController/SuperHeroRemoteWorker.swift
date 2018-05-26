@@ -18,7 +18,7 @@ import UIKit
 class SuperHeroRemoteWorker: WebAPIHandler {
    
     
-    func fetchMovies(request: SuperHeroList.Fetch.Request, complete :@escaping (SuperHeroList.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
+    func fetchData(request: SuperHeroList.Fetch.Request, complete :@escaping (SuperHeroList.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
         
         getDataFromServer(url: request.mURL) { (response, error) in
             

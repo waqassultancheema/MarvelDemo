@@ -56,6 +56,9 @@
 		29433C7C20B499B800FCD651 /* EventsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29433C6D20B499B800FCD651 /* EventsInteractor.swift */; };
 		29433C7D20B499B800FCD651 /* EventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29433C6E20B499B800FCD651 /* EventsPresenter.swift */; };
 		2972F0B920B6966E004DB56E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2972F0B820B6966E004DB56E /* Helper.swift */; };
+		299711BB20B9608400ED02E6 /* EventWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711BA20B9608400ED02E6 /* EventWorker.swift */; };
+		299711BD20B9633E00ED02E6 /* EventLocalWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711BC20B9633E00ED02E6 /* EventLocalWorker.swift */; };
+		299711BF20B9653700ED02E6 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711BE20B9653700ED02E6 /* Storage.swift */; };
 		29DFDD6C20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6B20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift */; };
 		29DFDD7220B3FD34002D496F /* ComicsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */; };
 		29DFDD7320B3FD34002D496F /* ComicsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6F20B3FD34002D496F /* ComicsModel.swift */; };
@@ -139,6 +142,9 @@
 		29433C6D20B499B800FCD651 /* EventsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsInteractor.swift; sourceTree = "<group>"; };
 		29433C6E20B499B800FCD651 /* EventsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsPresenter.swift; sourceTree = "<group>"; };
 		2972F0B820B6966E004DB56E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		299711BA20B9608400ED02E6 /* EventWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventWorker.swift; sourceTree = "<group>"; };
+		299711BC20B9633E00ED02E6 /* EventLocalWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocalWorker.swift; sourceTree = "<group>"; };
+		299711BE20B9653700ED02E6 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		29DFDD6B20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailConfigurator.swift; sourceTree = "<group>"; };
 		29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsInteractor.swift; sourceTree = "<group>"; };
 		29DFDD6F20B3FD34002D496F /* ComicsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsModel.swift; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 			children = (
 				29304F0720B164A400A6F82E /* Constants.swift */,
 				2972F0B820B6966E004DB56E /* Helper.swift */,
+				299711BE20B9653700ED02E6 /* Storage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -343,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				29433C6A20B499B800FCD651 /* EventsRemoteWorker.swift */,
+				299711BA20B9608400ED02E6 /* EventWorker.swift */,
+				299711BC20B9633E00ED02E6 /* EventLocalWorker.swift */,
 				29433C6B20B499B800FCD651 /* EventsConfigurator.swift */,
 				29433C6C20B499B800FCD651 /* EventsModel.swift */,
 				29433C6D20B499B800FCD651 /* EventsInteractor.swift */,
@@ -505,9 +514,11 @@
 				29304ED020B149CA00A6F82E /* SuperHeroPresenter.swift in Sources */,
 				29304EF720B1559B00A6F82E /* Thumbnail.swift in Sources */,
 				29304F0320B161D800A6F82E /* Request.swift in Sources */,
+				299711BB20B9608400ED02E6 /* EventWorker.swift in Sources */,
 				29304ED320B149EC00A6F82E /* MarvelRouter.swift in Sources */,
 				29433C6F20B499B800FCD651 /* StoriesConfigurator.swift in Sources */,
 				29DFDD7420B3FD34002D496F /* ComicsPresenter.swift in Sources */,
+				299711BD20B9633E00ED02E6 /* EventLocalWorker.swift in Sources */,
 				29433C7A20B499B800FCD651 /* EventsConfigurator.swift in Sources */,
 				29433C7220B499B800FCD651 /* StoriesPresenter.swift in Sources */,
 				29304EF120B1559B00A6F82E /* Comics.swift in Sources */,
@@ -529,6 +540,7 @@
 				29304EFA20B155C300A6F82E /* SuperHeroListModel.swift in Sources */,
 				29DFDD7720B40150002D496F /* DetailDataClass.swift in Sources */,
 				29304F0520B161D800A6F82E /* WebAPI.swift in Sources */,
+				299711BF20B9653700ED02E6 /* Storage.swift in Sources */,
 				29304F1520B2CF9A00A6F82E /* SuperHeroDetailDataSource.swift in Sources */,
 				29304EF620B1559B00A6F82E /* SuperHero.swift in Sources */,
 				29433C7620B499B800FCD651 /* SeriesRemoteWorker.swift in Sources */,

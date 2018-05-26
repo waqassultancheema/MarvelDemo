@@ -18,7 +18,7 @@ import UIKit
 class EventsRemoteWorker: WebAPIHandler {
    
     
-    func fetchMovies(request: EventsModel.Fetch.Request, complete :@escaping (EventsModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
+    func fetchData(request: EventsModel.Fetch.Request, complete :@escaping (EventsModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
         
         getDataFromServer(url: request.mURL) { (response, error) in
             

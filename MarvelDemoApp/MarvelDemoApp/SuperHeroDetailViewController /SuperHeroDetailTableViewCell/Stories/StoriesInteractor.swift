@@ -27,10 +27,10 @@ class StoriesInteractor:StoriesInteractorInput {
     func fetchStories(request: StoriesModel.Fetch.Request) {
         
 //        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
+//           self.output.presentfetchData(movies: [])
 //        }
         worker = StoriesRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
+        worker.fetchData(request: request, complete: { (response) in
             self.output?.presentFetchedStories(response: response)
         }) { (error) in
             self.output?.presentError(errorString: error?.localizedDescription ?? "")

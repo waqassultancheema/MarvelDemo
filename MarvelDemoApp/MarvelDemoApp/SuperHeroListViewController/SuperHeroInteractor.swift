@@ -26,10 +26,10 @@ class SuperHeroInteractor:SuperHeroInteractorInput {
     func fetchSuperHeros(request: SuperHeroList.Fetch.Request) {
         
 //        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
+//           self.output.presentfetchData(movies: [])
 //        }
         worker = SuperHeroRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
+        worker.fetchData(request: request, complete: { (response) in
             self.output.presentFetchedSuperHeros(response: response)
         }) { (error) in
            // self.output.presentFetchedSuperHeros(response: nil)

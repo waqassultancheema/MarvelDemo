@@ -46,8 +46,8 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             tableViewCell.configureCellWithCellType(cellType: .Event)
             tableViewCell.activityIndictor.stopAnimating()
             tableViewCell.headerLabel.text = displaySuperHero?.superHero.events.items[indexPath.row].name
-            if let resourceURl = (displaySuperHero?.superHero.events.items[indexPath.row].resourceURI) {
-                tableViewCell.requestEvent =  EventsModel.Fetch.Request(eventURL: resourceURl)
+            if let comicItem = (displaySuperHero?.superHero.events.items[indexPath.row]) {
+                tableViewCell.requestEvent =  EventsModel.Fetch.Request(eventURL: comicItem.resourceURI, eventID: comicItem.name)
 
             }
             tableViewCell.sendEventServiceRequest()

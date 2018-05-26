@@ -26,10 +26,10 @@ class ComicsInteractor:ComicsInteractorInput {
     func fetchComic(request: ComicsModel.Fetch.Request) {
         
 //        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
+//           self.output.presentfetchData(movies: [])
 //        }
         worker = ComicsRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
+        worker.fetchData(request: request, complete: { (response) in
             self.output?.presentFetchedComic(response: response)
         }) { (error) in
            // self.output.presentFetchedSuperHeros(response: nil)

@@ -26,10 +26,10 @@ class SeriesInteractor:SeriesInteractorInput {
     func fetchSeries(request: SeriesModel.Fetch.Request) {
         
 //        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
+//           self.output.presentfetchData(movies: [])
 //        }
         worker = SeriesRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
+        worker.fetchData(request: request, complete: { (response) in
             self.output?.presentFetchedSeries(response: response)
         }) { (error) in
            // self.output.presentFetchedSuperHeros(response: nil)
