@@ -44,24 +44,3 @@ class SuperHeroRemoteWorker: WebAPIHandler {
     
     
 }
-
-
-// MARK: - Movie API
-
-//struct MovieAPI: WebAPIHandler {
-//    func getMoviesList(url: String, completion: @escaping onCompletion) {
-//        getDataFromServer(url: url, type: .SuperHeroList) { (response, error) in
-//            guard error == nil else {
-//                completion(nil, error)
-//                return
-//            }
-//            if let mData = response as? Data {
-//                let decoder = JSONDecoder()
-//                let mData = try! decoder.decode(SuperHeroList.Fetch.Response.self, from: mData)
-//                completion(mData, nil)
-//            }
-//        }
-//    }
-//}
-
-
