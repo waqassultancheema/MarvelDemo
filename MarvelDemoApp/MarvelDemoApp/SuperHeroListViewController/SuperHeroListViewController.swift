@@ -51,7 +51,22 @@ class SuperHeroListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        if searchTextField.text != "" {
+            activityIndictor.startAnimating()
+            let request = SuperHeroList.Fetch.Request(isFilteredApplied: true, offset: offset, limit: 20, searchQuery: searchTextField.text ?? "")
+            searchEnabled = true
+            output.fetchItems(request: request)
+        } else {
+            activityIndictor.startAnimating()
+            searchTextField.text = ""
+            offset = 0
+            let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 20, searchQuery:"")
+            searchEnabled = true
+            output.fetchItems(request: request)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -68,16 +83,11 @@ extension SuperHeroListViewController:UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
          activityIndictor.startAnimating()
-        if textField.text != "" {
-            let request = SuperHeroList.Fetch.Request(isFilteredApplied: true, offset: offset, limit: 20, searchQuery: textField.text ?? "")
-            searchEnabled = true
-            output.fetchItems(request: request)
-        } else {
-            offset = 0
-            let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 20, searchQuery:"")
-            searchEnabled = true
-            output.fetchItems(request: request)
-        }
+        textField.text = ""
+        offset = 0
+        let request = SuperHeroList.Fetch.Request(isFilteredApplied: false, offset: offset, limit: 20, searchQuery:"")
+        searchEnabled = true
+        output.fetchItems(request: request)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
