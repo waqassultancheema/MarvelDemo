@@ -20,11 +20,17 @@ enum EventsModel
         struct Request
         {
             var eventURL:String = ""
-            
+            var eventID:String = ""
             var mURL: String {
-               
-            let url = String(format: "\(eventURL)" + "?ts=\(Constant.SUPER_HERO_EVENTS_URL.timeStamp)&apikey=\(Constant.API_KEY)&hash=\(Constant.SUPER_HERO_EVENTS_URL.hash)")
+                let timeS = Constant.SUPER_HERO_COMICS_URL.timeStamp
+
+            let url = String(format: "\(eventURL)" + "?ts=\(timeS)&apikey=\(Constant.API_KEY)&hash=\(Constant.SUPER_HERO_EVENTS_URL.makeHash(timeStamp: timeS))")
                     return url
+            }
+            
+            var localSaveURL: String {
+                let url = String(format: "\(eventID).json")
+                return url
             }
         }
         struct Response: Codable {

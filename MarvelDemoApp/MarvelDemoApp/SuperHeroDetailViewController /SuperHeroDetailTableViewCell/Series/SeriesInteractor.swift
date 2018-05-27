@@ -21,20 +21,21 @@ protocol SeriesInteractorOutput: class {
 class SeriesInteractor:SeriesInteractorInput {
 
     weak var output: SeriesInteractorOutput?
-    var worker: SeriesRemoteWorker!
+    var worker: SeriesWorker!
     
     func fetchSeries(request: SeriesModel.Fetch.Request) {
         
-//        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
-//        }
-        worker = SeriesRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
-            self.output?.presentFetchedSeries(response: response)
-        }) { (error) in
-           // self.output.presentFetchedSuperHeros(response: nil)
-
-        }
+         worker = SeriesWorker()
+         worker.output = self
+          worker.fetchSeriess(request: request)
        }
 
+}
+
+extension SeriesInteractor: SeriesWorkerOutput {
+    func presentFetchedSeries(response: SeriesModel.Fetch.Response) {
+        self.output?.presentFetchedSeries(response: response)
+    }
+    
+    
 }

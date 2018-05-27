@@ -18,7 +18,7 @@ import UIKit
 class StoriesRemoteWorker: WebAPIHandler {
    
     
-    func fetchMovies(request: StoriesModel.Fetch.Request, complete :@escaping (StoriesModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
+    func fetchData(request: StoriesModel.Fetch.Request, complete :@escaping (StoriesModel.Fetch.Response) -> Void, failure:@escaping (Error?) -> Void) {
         
         getDataFromServer(url: request.mURL) { (response, error) in
             
@@ -38,32 +38,8 @@ class StoriesRemoteWorker: WebAPIHandler {
             }
         }
 
-        failure(nil)
     }
     
     
     
 }
-
-
-// MARK: - Movie API
-
-//struct MovieAPI: WebAPIHandler {
-//    func getMoviesList(url: String, completion: @escaping onCompletion) {
-//        getDataFromServer(url: url, type: .SuperHeroList) { (response, error) in
-//            guard error == nil else {
-//                completion(nil, error)
-//                return
-//            }
-//            if let mData = response as? Data {
-//                let decoder = JSONDecoder()
-//                let mData = try! decoder.decode(SuperHeroList.Fetch.Response.self, from: mData)
-//                completion(mData, nil)
-//            }
-//        }
-//    }
-//}
-
-// MARK: - URLSession response handlers
-
-

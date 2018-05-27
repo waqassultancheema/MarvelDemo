@@ -21,20 +21,23 @@ protocol ComicsInteractorOutput: class {
 class ComicsInteractor:ComicsInteractorInput {
 
     weak var output: ComicsInteractorOutput?
-    var worker: ComicsRemoteWorker!
+    var worker: ComicsWorker!
     
     func fetchComic(request: ComicsModel.Fetch.Request) {
-        
-//        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
-//        }
-        worker = ComicsRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
-            self.output?.presentFetchedComic(response: response)
-        }) { (error) in
-           // self.output.presentFetchedSuperHeros(response: nil)
+    
+        worker = ComicsWorker()
+        worker.output  = self
+        worker.fetchComicss(request: request)
+    }
 
-        }
-       }
 
 }
+
+extension ComicsInteractor : ComicsWorkerOutput {
+    func presentFetchedComics(response: ComicsModel.Fetch.Response) {
+        self.output?.presentFetchedComic(response: response)
+    }
+    
+    
+}
+

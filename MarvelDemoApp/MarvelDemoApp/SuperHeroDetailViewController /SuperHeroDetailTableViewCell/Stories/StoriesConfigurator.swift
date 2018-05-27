@@ -16,6 +16,13 @@ extension SuperHeroDetailTableViewCell {
 }
 extension SuperHeroDetailTableViewCell: StoriesPresenterOutput
 {
+    func errorFetchingItems(message: String) {
+        DispatchQueue.main.async() {
+            self.activityIndictor.stopAnimating()
+            self.descriptionLabel.text =  message
+        }
+    }
+    
     func successFetchedItems(viewModel: StoriesModel.Fetch.ViewModel.DisplayedStories) {
         DispatchQueue.main.async() {
             self.activityIndictor.stopAnimating()
@@ -26,9 +33,7 @@ extension SuperHeroDetailTableViewCell: StoriesPresenterOutput
         
     }
     
-    func errorFetchingItems(viewModel: StoriesModel.Fetch.ViewModel.DisplayedStories) {
-        
-    }
+    
     
     func sendStoriesServiceRequest() {
         // Initialization code
@@ -68,6 +73,10 @@ extension StoriesInteractor: SuperHeroDetailTableViewCellOutput
 
 extension  StoriesPresenter: StoriesInteractorOutput
 {
+    func presentError(errorString: String) {
+        self.errorFetchingItems(message: errorString)
+    }
+    
     
     
     func presentFetchedStories(response: StoriesModel.Fetch.Response) {

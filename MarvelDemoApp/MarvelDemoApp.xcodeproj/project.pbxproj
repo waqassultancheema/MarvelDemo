@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,6 +56,15 @@
 		29433C7C20B499B800FCD651 /* EventsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29433C6D20B499B800FCD651 /* EventsInteractor.swift */; };
 		29433C7D20B499B800FCD651 /* EventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29433C6E20B499B800FCD651 /* EventsPresenter.swift */; };
 		2972F0B920B6966E004DB56E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2972F0B820B6966E004DB56E /* Helper.swift */; };
+		299711BB20B9608400ED02E6 /* EventWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711BA20B9608400ED02E6 /* EventWorker.swift */; };
+		299711BD20B9633E00ED02E6 /* EventLocalWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711BC20B9633E00ED02E6 /* EventLocalWorker.swift */; };
+		299711BF20B9653700ED02E6 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711BE20B9653700ED02E6 /* Storage.swift */; };
+		299711C220B97C2100ED02E6 /* SeriesLocalWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711C020B97C2100ED02E6 /* SeriesLocalWorker.swift */; };
+		299711C320B97C2100ED02E6 /* SeriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711C120B97C2100ED02E6 /* SeriesWorker.swift */; };
+		299711C620B98E4100ED02E6 /* StoriesLocalWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711C420B98E4100ED02E6 /* StoriesLocalWorker.swift */; };
+		299711C720B98E4100ED02E6 /* StoriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711C520B98E4100ED02E6 /* StoriesWorker.swift */; };
+		299711CA20B9903B00ED02E6 /* ComicsLocalWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711C820B9903B00ED02E6 /* ComicsLocalWorker.swift */; };
+		299711CB20B9903B00ED02E6 /* ComicsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299711C920B9903B00ED02E6 /* ComicsWorker.swift */; };
 		29DFDD6C20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6B20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift */; };
 		29DFDD7220B3FD34002D496F /* ComicsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */; };
 		29DFDD7320B3FD34002D496F /* ComicsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFDD6F20B3FD34002D496F /* ComicsModel.swift */; };
@@ -139,6 +148,16 @@
 		29433C6D20B499B800FCD651 /* EventsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsInteractor.swift; sourceTree = "<group>"; };
 		29433C6E20B499B800FCD651 /* EventsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsPresenter.swift; sourceTree = "<group>"; };
 		2972F0B820B6966E004DB56E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		299711BA20B9608400ED02E6 /* EventWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventWorker.swift; sourceTree = "<group>"; };
+		299711BC20B9633E00ED02E6 /* EventLocalWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocalWorker.swift; sourceTree = "<group>"; };
+		299711BE20B9653700ED02E6 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		299711C020B97C2100ED02E6 /* SeriesLocalWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesLocalWorker.swift; sourceTree = "<group>"; };
+		299711C120B97C2100ED02E6 /* SeriesWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesWorker.swift; sourceTree = "<group>"; };
+		299711C420B98E4100ED02E6 /* StoriesLocalWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesLocalWorker.swift; sourceTree = "<group>"; };
+		299711C520B98E4100ED02E6 /* StoriesWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesWorker.swift; sourceTree = "<group>"; };
+		299711C820B9903B00ED02E6 /* ComicsLocalWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsLocalWorker.swift; sourceTree = "<group>"; };
+		299711C920B9903B00ED02E6 /* ComicsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsWorker.swift; sourceTree = "<group>"; };
+		299711CC20B999FE00ED02E6 /* MarvelDemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelDemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		29DFDD6B20B3EDFE002D496F /* SuperHeroDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailConfigurator.swift; sourceTree = "<group>"; };
 		29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsInteractor.swift; sourceTree = "<group>"; };
 		29DFDD6F20B3FD34002D496F /* ComicsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsModel.swift; sourceTree = "<group>"; };
@@ -198,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				29304E7620B13B7A00A6F82E /* AppDelegate.swift */,
+				299711CC20B999FE00ED02E6 /* MarvelDemoApp-Bridging-Header.h */,
 				29304F0620B1649800A6F82E /* Helper */,
 				29304EFB20B161D800A6F82E /* WebApi */,
 				29304EE620B1559B00A6F82E /* Models */,
@@ -288,6 +308,7 @@
 			children = (
 				29304F0720B164A400A6F82E /* Constants.swift */,
 				2972F0B820B6966E004DB56E /* Helper.swift */,
+				299711BE20B9653700ED02E6 /* Storage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -318,6 +339,8 @@
 		29433C5D20B499B800FCD651 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
+				299711C420B98E4100ED02E6 /* StoriesLocalWorker.swift */,
+				299711C520B98E4100ED02E6 /* StoriesWorker.swift */,
 				29433C5E20B499B800FCD651 /* StoriesConfigurator.swift */,
 				29433C5F20B499B800FCD651 /* StoriesRemoteWorker.swift */,
 				29433C6020B499B800FCD651 /* StoriesInteractor.swift */,
@@ -330,6 +353,8 @@
 		29433C6320B499B800FCD651 /* Series */ = {
 			isa = PBXGroup;
 			children = (
+				299711C020B97C2100ED02E6 /* SeriesLocalWorker.swift */,
+				299711C120B97C2100ED02E6 /* SeriesWorker.swift */,
 				29433C6420B499B800FCD651 /* SeriesInteractor.swift */,
 				29433C6520B499B800FCD651 /* SeriesConfigurator.swift */,
 				29433C6620B499B800FCD651 /* SeriesRemoteWorker.swift */,
@@ -343,6 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				29433C6A20B499B800FCD651 /* EventsRemoteWorker.swift */,
+				299711BA20B9608400ED02E6 /* EventWorker.swift */,
+				299711BC20B9633E00ED02E6 /* EventLocalWorker.swift */,
 				29433C6B20B499B800FCD651 /* EventsConfigurator.swift */,
 				29433C6C20B499B800FCD651 /* EventsModel.swift */,
 				29433C6D20B499B800FCD651 /* EventsInteractor.swift */,
@@ -354,6 +381,8 @@
 		29DFDD6D20B3FD34002D496F /* Comics */ = {
 			isa = PBXGroup;
 			children = (
+				299711C820B9903B00ED02E6 /* ComicsLocalWorker.swift */,
+				299711C920B9903B00ED02E6 /* ComicsWorker.swift */,
 				29DFDD6E20B3FD34002D496F /* ComicsInteractor.swift */,
 				29DFDD6F20B3FD34002D496F /* ComicsModel.swift */,
 				29DFDD7020B3FD34002D496F /* ComicsPresenter.swift */,
@@ -446,7 +475,7 @@
 				};
 			};
 			buildConfigurationList = 29304E6E20B13B7A00A6F82E /* Build configuration list for PBXProject "MarvelDemoApp" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -498,16 +527,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				29304EF420B1559B00A6F82E /* Stories.swift in Sources */,
+				299711CB20B9903B00ED02E6 /* ComicsWorker.swift in Sources */,
 				29433C7920B499B800FCD651 /* EventsRemoteWorker.swift in Sources */,
 				29433C7020B499B800FCD651 /* StoriesRemoteWorker.swift in Sources */,
 				29304EF320B1559B00A6F82E /* DataClass.swift in Sources */,
+				299711C320B97C2100ED02E6 /* SeriesWorker.swift in Sources */,
 				29DFDD7520B3FD34002D496F /* ComicsRemoteWorker.swift in Sources */,
 				29304ED020B149CA00A6F82E /* SuperHeroPresenter.swift in Sources */,
 				29304EF720B1559B00A6F82E /* Thumbnail.swift in Sources */,
 				29304F0320B161D800A6F82E /* Request.swift in Sources */,
+				299711BB20B9608400ED02E6 /* EventWorker.swift in Sources */,
 				29304ED320B149EC00A6F82E /* MarvelRouter.swift in Sources */,
 				29433C6F20B499B800FCD651 /* StoriesConfigurator.swift in Sources */,
 				29DFDD7420B3FD34002D496F /* ComicsPresenter.swift in Sources */,
+				299711CA20B9903B00ED02E6 /* ComicsLocalWorker.swift in Sources */,
+				299711BD20B9633E00ED02E6 /* EventLocalWorker.swift in Sources */,
 				29433C7A20B499B800FCD651 /* EventsConfigurator.swift in Sources */,
 				29433C7220B499B800FCD651 /* StoriesPresenter.swift in Sources */,
 				29304EF120B1559B00A6F82E /* Comics.swift in Sources */,
@@ -529,7 +563,9 @@
 				29304EFA20B155C300A6F82E /* SuperHeroListModel.swift in Sources */,
 				29DFDD7720B40150002D496F /* DetailDataClass.swift in Sources */,
 				29304F0520B161D800A6F82E /* WebAPI.swift in Sources */,
+				299711BF20B9653700ED02E6 /* Storage.swift in Sources */,
 				29304F1520B2CF9A00A6F82E /* SuperHeroDetailDataSource.swift in Sources */,
+				299711C620B98E4100ED02E6 /* StoriesLocalWorker.swift in Sources */,
 				29304EF620B1559B00A6F82E /* SuperHero.swift in Sources */,
 				29433C7620B499B800FCD651 /* SeriesRemoteWorker.swift in Sources */,
 				29304ED120B149CA00A6F82E /* SuperHeroRemoteWorker.swift in Sources */,
@@ -544,11 +580,13 @@
 				29304ECC20B149CA00A6F82E /* SuperHeroListViewDataSource.swift in Sources */,
 				29433C7D20B499B800FCD651 /* EventsPresenter.swift in Sources */,
 				29304EA620B1440600A6F82E /* SuperHeroListViewController.swift in Sources */,
+				299711C220B97C2100ED02E6 /* SeriesLocalWorker.swift in Sources */,
 				29304E7720B13B7A00A6F82E /* AppDelegate.swift in Sources */,
 				29433C7320B499B800FCD651 /* StoriesModel.swift in Sources */,
 				29304F0220B161D800A6F82E /* Reachability.swift in Sources */,
 				29304F0120B161D800A6F82E /* NetworkError.swift in Sources */,
 				29304F0820B164A400A6F82E /* Constants.swift in Sources */,
+				299711C720B98E4100ED02E6 /* StoriesWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +697,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/MarvelDemoApp/MarvelDemoApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -711,7 +751,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/MarvelDemoApp/MarvelDemoApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -723,7 +765,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MarvelDemoApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marvel.MarvelDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -739,7 +784,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MarvelDemoApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marvel.MarvelDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -755,7 +803,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MarvelDemoAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marvel.MarvelDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -771,7 +823,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MarvelDemoAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marvel.MarvelDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -786,7 +842,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MarvelDemoAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marvel.MarvelDemoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -801,7 +861,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MarvelDemoAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marvel.MarvelDemoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

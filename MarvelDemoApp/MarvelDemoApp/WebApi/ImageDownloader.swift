@@ -8,28 +8,53 @@
 
 import UIKit
 
-class ImageDownloader {
+let imageCache = NSCache<NSString, UIImage>()
+
+class ImageDownloader: UIImageView,WebAPIHandler {
     
-    static var shared = ImageDownloader()
-    private let cache = NSCache<NSString, NSData>()
+    var imageUrlString: String?
     
-    class func image(for url: URL, completionHandler: @escaping(_ image: UIImage?) -> ()) {
+    func loadImageUsingUrlString(urlString: String,activityIndictor:UIActivityIndicatorView) {
         
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-            
-            if let data = ImageDownloader.shared.cache.object(forKey: url.absoluteString as NSString) {
-                DispatchQueue.main.async { completionHandler(UIImage(data: data as Data)) }
+        imageUrlString = urlString
+        
+        image = nil
+        
+        if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
+            self.image = imageFromCache
+            DispatchQueue.main.async {
+                activityIndictor.stopAnimating()
+            }
+            return
+        }
+        getDataFromServer(url: urlString) {[unowned self] (data, error) in
+            if error != nil {
+                print(error ?? "")
+                 DispatchQueue.main.async {
+                activityIndictor.stopAnimating()
+                }
+
                 return
             }
             
-            guard let data = NSData(contentsOf: url) else {
-                DispatchQueue.main.async { completionHandler(nil) }
-                return
+            DispatchQueue.main.async {
+                
+                if let d = data {
+                    let imageToCache = UIImage(data: d as! Data)
+                    
+                    if self.imageUrlString == urlString {
+                        self.image = imageToCache
+                    }
+                    if let imageToCac = imageToCache {
+                        imageCache.setObject(imageToCac, forKey: urlString as NSString)
+                    }
+                } else {
+                    self.image  = #imageLiteral(resourceName: "image_not_available")
+                }
+                activityIndictor.stopAnimating()
             }
-            
-            ImageDownloader.shared.cache.setObject(data, forKey: url.absoluteString as NSString)
-            DispatchQueue.main.async { completionHandler(UIImage(data: data as Data)) }
         }
     }
     
 }
+

@@ -13,8 +13,8 @@ class MyError: Codable {
     var status_code: Int
     
     private enum CodingKeys: String, CodingKey {
-        case status_code = "status_code"
-        case status_message = "status_message"
+        case status_code = "code"
+        case status_message = "status"
     }
 }
 
@@ -24,10 +24,6 @@ struct ParserURLResponse {
         if let httpResponse = response as? HTTPURLResponse {
             
             let code = httpResponse.statusCode
-            
-//            Logger.log(message: "statusCode: \(code)")
-//            Logger.log(message: "Response: \(String(describing: String(data: data!, encoding: .utf8)))")
-//
             if code == 200 {
                 completion(data, nil)
             }

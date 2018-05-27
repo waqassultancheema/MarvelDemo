@@ -13,7 +13,7 @@ class SuperHeroListTableViewCell: UITableViewCell {
     
 
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var backgroundImage: ImageDownloader!
     @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
     @IBOutlet weak var favButton: UIButton!
     var idOfSuperHero:Int = 0
@@ -30,25 +30,10 @@ class SuperHeroListTableViewCell: UITableViewCell {
     
     func downloadImage(url: String) {
         activityIndictor.startAnimating()
-         self.backgroundImage.image = #imageLiteral(resourceName: "image_not_available")
-        let urL  = URL(string: url)
-        if let correctURL = urL {
-            ImageDownloader.image(for: correctURL) { (image) in
-                DispatchQueue.main.async() {
-                    self.activityIndictor.startAnimating()
-                    self.backgroundImage.image = image
-                }
-            }
-//            ImageLoader.sharedLoader.imageForUrl(urlString: url) { (image, value) in
-//                DispatchQueue.main.async() {
-//                    self.activityIndictor.startAnimating()
-//                    self.backgroundImage.image = image
-//                }
-//            }
-//            self.backgroundImage.loadImageWithUrl(correctURL) {[unowned self] (value) in
-//                self.activityIndictor.stopAnimating()
-//            }
-        }
+        self.backgroundImage.image = #imageLiteral(resourceName: "image_not_available")
+        self.backgroundImage.image  = nil
+        backgroundImage.loadImageUsingUrlString(urlString: url, activityIndictor: activityIndictor)
+        
     }
     @IBAction func btnFavouriteTapped(_ sender: Any) {
         let button:UIButton = sender as! UIButton

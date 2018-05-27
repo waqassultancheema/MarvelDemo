@@ -16,25 +16,30 @@ protocol StoriesInteractorInput {
 
 protocol StoriesInteractorOutput: class {
     func presentFetchedStories(response:StoriesModel.Fetch.Response)
+    func presentError(errorString:String)
 
 }
 class StoriesInteractor:StoriesInteractorInput {
 
     weak var output: StoriesInteractorOutput?
-    var worker: StoriesRemoteWorker!
+    var worker: StoriesWorker!
     
     func fetchStories(request: StoriesModel.Fetch.Request) {
-        
-//        if request.parameters.count  == 0  {
-//           self.output.presentFetchMovies(movies: [])
-//        }
-        worker = StoriesRemoteWorker()
-        worker.fetchMovies(request: request, complete: { (response) in
-            self.output?.presentFetchedStories(response: response)
-        }) { (error) in
-           // self.output.presentFetchedSuperHeros(response: nil)
+        worker = StoriesWorker()
+        worker.output = self
+        worker.fetchStoriess(request: request)
+    }
+}
 
-        }
-       }
-
+extension StoriesInteractor: StoriesWorkerOutput {
+    func presentError(error: String) {
+        self.output?.presentError(errorString: error)
+    }
+    
+    func presentFetchedStories(response: StoriesModel.Fetch.Response) {
+        self.output?.presentFetchedStories(response: response)
+    }
+    
+    
+    
 }

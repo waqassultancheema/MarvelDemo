@@ -27,3 +27,11 @@ class SaveFavourite {
         return false
     }
 }
+
+
+// Swift 3:  https://stackoverflow.com/questions/39829831/how-to-get-18-digit-current-timestamp-in-swift/39830091?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+extension Date {
+    var ticks: UInt64 {
+        return UInt64((self.timeIntervalSince1970 + 62_135_596_800) * 10_000_000)
+    }
+}

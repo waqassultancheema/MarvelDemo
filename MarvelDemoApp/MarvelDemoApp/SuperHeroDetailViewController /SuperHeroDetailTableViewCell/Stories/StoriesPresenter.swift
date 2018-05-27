@@ -12,14 +12,18 @@ import UIKit
 protocol StoriesPresenterInput
 {
     func presentFetchResults(response:StoriesModel.Fetch.Response);
+    func errorFetchingItems(message:String)
+
 }
 
 protocol StoriesPresenterOutput: class
 {
     func successFetchedItems(viewModel: StoriesModel.Fetch.ViewModel.DisplayedStories)
-    func errorFetchingItems(viewModel: StoriesModel.Fetch.ViewModel.DisplayedStories)
+    func errorFetchingItems(message:String)
 }
 class StoriesPresenter:StoriesPresenterInput {
+   
+    
 
     var output:StoriesPresenterOutput!
     
@@ -34,5 +38,9 @@ class StoriesPresenter:StoriesPresenterInput {
             output.successFetchedItems(viewModel: displayViewModel)
         }
         
+    }
+    
+    func errorFetchingItems(message: String) {
+        output.errorFetchingItems(message: message)
     }
 }

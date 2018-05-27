@@ -26,7 +26,6 @@ extension WebAPIHandler {
             return
         }
         let urlString = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
-      //  Logger.log(message: "URL: \(url)")
         if let urL = URL(string: urlString) {
              let request = URLRequest(url: urL)
             let session = URLSession.shared
