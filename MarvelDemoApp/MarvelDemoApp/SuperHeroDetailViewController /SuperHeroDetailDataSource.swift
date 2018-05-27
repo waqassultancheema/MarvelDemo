@@ -61,7 +61,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
             tableViewCell.configureCellWithCellType(cellType: .Story)
             tableViewCell.activityIndictor.stopAnimating()
-            tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
+            tableViewCell.headerLabel.text = displaySuperHero?.superHero.stories.items[indexPath.row].name
             if let resourceURl = (displaySuperHero?.superHero.stories.items[indexPath.row].resourceURI) {
                 tableViewCell.requestStories =  StoriesModel.Fetch.Request(storiesURL: resourceURl)
                 
@@ -78,7 +78,7 @@ class SuperHeroDetailDataSource: NSObject,UITableViewDelegate,UITableViewDataSou
             let tableViewCell:SuperHeroDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroDetailTableViewCell", for: indexPath) as! SuperHeroDetailTableViewCell
             tableViewCell.configureCellWithCellType(cellType: .Series)
             tableViewCell.activityIndictor.stopAnimating()
-            tableViewCell.headerLabel.text = displaySuperHero?.superHero.comics.items[indexPath.row].name
+            tableViewCell.headerLabel.text = displaySuperHero?.superHero.series.items[indexPath.row].name
             if let resourceURl = (displaySuperHero?.superHero.series.items[indexPath.row].resourceURI) {
                 tableViewCell.requestSeries =  SeriesModel.Fetch.Request(seriesURL: resourceURl)
                 

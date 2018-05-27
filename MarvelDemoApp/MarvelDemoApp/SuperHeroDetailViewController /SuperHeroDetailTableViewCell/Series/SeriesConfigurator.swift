@@ -32,7 +32,9 @@ extension SuperHeroDetailTableViewCell: SeriesPresenterOutput
     
     func sendSeriesServiceRequest() {
         // Initialization code
-        self.activityIndictor.startAnimating()
+        DispatchQueue.main.async() {
+            self.activityIndictor.startAnimating()
+        }
         output.fetchSeriesItems(request: requestSeries!)
     }
     

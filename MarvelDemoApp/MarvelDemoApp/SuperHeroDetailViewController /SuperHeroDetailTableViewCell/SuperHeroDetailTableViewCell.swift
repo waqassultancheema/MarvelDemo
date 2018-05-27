@@ -46,6 +46,8 @@ class SuperHeroDetailTableViewCell: UITableViewCell {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.headerLabel.text = ""
+        self.descriptionLabel.text = ""
     }
     
     func configureCellWithCellType(cellType:CellType) {
