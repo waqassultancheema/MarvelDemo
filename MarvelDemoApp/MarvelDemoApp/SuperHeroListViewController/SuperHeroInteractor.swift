@@ -29,7 +29,9 @@ class SuperHeroInteractor:SuperHeroInteractorInput {
 //           self.output.presentfetchData(movies: [])
 //        }
         worker.fetchData(request: request, complete: { (response) in
-            self.output.presentFetchedSuperHeros(response: response)
+            if self.output != nil {
+                self.output.presentFetchedSuperHeros(response: response)
+            }
         }) { (error)     in
            // self.output.presentFetchedSuperHeros(response: nil)
 

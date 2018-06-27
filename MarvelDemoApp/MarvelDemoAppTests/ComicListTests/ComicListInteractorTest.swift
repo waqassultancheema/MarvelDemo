@@ -42,23 +42,44 @@ class ComicListInteractorTest: XCTestCase {
         super.tearDown()
     }
     
-    func testFetchSuperHeroList() {
+    func testFetchSuperHeroListResponseWell() {
         sut.worker = SuperHeroRemoteWorkerDummy()
         sut.output = self
         sut.fetchSuperHeros(request: SuperHeroList.Fetch.Request(isFilteredApplied: false, offset:1, limit: 10, searchQuery: ""))
         
         XCTAssert(reponse.code == 200, "Response Came Good")
-       
-    
         
     }
     
+    func testFetchSuperHeroListWithSearch() {
+        sut.worker = SuperHeroRemoteWorkerDummy()
+        sut.output = self
+        sut.fetchSuperHeros(request: SuperHeroList.Fetch.Request(isFilteredApplied: true, offset:1, limit: 10, searchQuery: ""))
+        
+        XCTAssert(reponse.code == 200, "Response Came Good for Search")
+        
+    }
     
+    func testResponseISNotNill() {
+        sut.worker = SuperHeroRemoteWorkerDummy()
+        sut.output = self
+        sut.fetchSuperHeros(request: SuperHeroList.Fetch.Request(isFilteredApplied: true, offset:1, limit: 10, searchQuery: ""))
+        
+        XCTAssert(reponse != nil, "Response is Not Nil")
+        
+    }
+    func testFetchSuperHeroListCheckOutputConformed() {
+        sut.worker = SuperHeroRemoteWorker()
+        sut.output = self
+        XCTAssert(sut.output != nil, "Output is Handled")
+        
+    }
 }
 
 extension  ComicListInteractorTest: SuperHeroInteractorOutput
 {
     func presentFetchedSuperHeros(response: SuperHeroList.Fetch.Response) {
+        
         reponse = response
     }
 }
