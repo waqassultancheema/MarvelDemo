@@ -21,17 +21,16 @@ protocol SuperHeroInteractorOutput {
 class SuperHeroInteractor:SuperHeroInteractorInput {
 
     var output: SuperHeroInteractorOutput!
-    var worker: SuperHeroRemoteWorker!
+    var worker: SuperHeroRemoteWorker = SuperHeroRemoteWorker()
     
     func fetchSuperHeros(request: SuperHeroList.Fetch.Request) {
         
 //        if request.parameters.count  == 0  {
 //           self.output.presentfetchData(movies: [])
 //        }
-        worker = SuperHeroRemoteWorker()
         worker.fetchData(request: request, complete: { (response) in
             self.output.presentFetchedSuperHeros(response: response)
-        }) { (error) in
+        }) { (error)     in
            // self.output.presentFetchedSuperHeros(response: nil)
 
         }
